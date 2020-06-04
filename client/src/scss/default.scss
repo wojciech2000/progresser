@@ -1,0 +1,15 @@
+$main-font: 'Francois One', sans-serif;
+$header-font: 'Black Ops One', cursive;
+$quote-font: 'Merienda One', cursive;
+
+body
+{
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    font-family: $main-font;
+    overflow: hidden;
+    font-size: 2vw;
+    margin: 0;
+    padding: 0;
+}
