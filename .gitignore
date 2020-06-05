@@ -4,4 +4,3 @@ node_modules
 
 #frontend
 client/node_modules
-client/src/App.css
