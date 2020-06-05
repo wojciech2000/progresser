@@ -1,0 +1,39 @@
+.body
+{
+    width: 100%;
+    height: 100vh;
+    background: url('./pictures/body-builder.jpg') no-repeat top / cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+    &__blockquote
+    {
+        font-family: $quote-font;
+        text-align: center;
+        font-size: 1.2em;
+        color: white;
+        padding: 2% 3%;
+        border: 1px solid white;
+        border-radius: 10px;
+        background-color: rgba($color: #000000, $alpha: .6);
+    }
+
+    @media (max-width: 1024px)
+    {
+        &__blockquote
+        {
+            font-size: 1.6em;
+        }
+    }
+
+    @media(max-width: 768px)
+    {
+        &__blockquote
+        {
+            font-size: 2.2em;
+        }
+    }
+
+}

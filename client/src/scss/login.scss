@@ -1,0 +1,15 @@
+.login
+{
+    @extend .home-form;
+
+    &__input
+    {
+        @extend .input;
+    }
+
+    &__submit
+    {
+        @extend .form-submit;
+    }
+
+}

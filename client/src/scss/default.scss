@@ -1,6 +1,7 @@
 $main-font: 'Francois One', sans-serif;
 $header-font: 'Black Ops One', cursive;
 $quote-font: 'Merienda One', cursive;
+$main-contrastColor: #5E0000;
 
 body
 {
@@ -12,4 +13,134 @@ body
     font-size: 2vw;
     margin: 0;
     padding: 0;
+}
+
+ul
+{
+    list-style-type: none;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+.input
+{
+        position: relative;
+
+        input
+        {
+            position: relative;
+            border: none;
+            outline: none;
+            background: none;
+            border-bottom: 2px solid #000000;
+            font-family: $main-font;    
+            font-size: 0.8em;
+            z-index: 2;
+            color: white;
+        }
+
+        label
+        {
+            position: absolute;
+            left: 1%;
+            bottom: 0;
+            z-index: 1;
+            color: white;
+            font-size: .8em;
+            transition: all .2s ease-in-out;
+        }
+
+        .label--active
+        {
+            transform: scale(.7) translate(-22%, -140%);
+            color: black;
+        }
+
+        @media (max-width: 1024px)
+        {
+            width: 60%;
+
+            input
+            {
+                width: 100%;
+                font-size: 1.2em;
+            }
+
+                label
+            {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 768px)
+        {
+            input
+            {
+                font-size: 1.6em;
+            }
+
+                label
+            {
+                font-size: 1.6em;
+            }
+        }
+
+        @media (max-width: 524px)
+        {
+            input
+            {
+                font-size: 1.8em;
+            }
+
+                label
+            {
+                font-size: 1.8em;
+            }
+        }
+
+}
+
+.home-form
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.form-submit
+{
+    outline: none;
+    border: none;
+    width: 35%;
+    font-size: .7em;
+    padding: 1.5% 0;
+    font-family: $main-font;
+    border-radius: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: all .15s ease-in;
+    transition-property: background-color, color;
+    
+    &:hover
+    {
+        background-color: $main-contrastColor;
+        color: white;
+    }
+
+    @media (max-width: 1024px)
+    {
+        font-size: .9em;
+    }
+
+    @media (max-width: 768px)
+    {
+        font-size: 1.3em;
+    }
+
 }
