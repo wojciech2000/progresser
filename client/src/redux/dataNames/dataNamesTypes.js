@@ -1,0 +1,7 @@
+const ADD_DATA_NAME =  'ADD_DATA_NAME'
+const CLEAR_DATA_NAME = 'CLEAR_DATA_NAME'
+
+export default {
+    ADD_DATA_NAME,
+    CLEAR_DATA_NAME
+}

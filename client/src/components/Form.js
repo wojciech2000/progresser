@@ -1,20 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import Login from './Login'
 import Register from './Register'
 
 const Form = () => {
-
-    useEffect(() => {
-
-        //set active styles for current route's switch
-        const location = window.location.pathname
-
-        const login = document.querySelector('.form__switches').firstChild
-        const register = document.querySelector('.form__switches').lastChild
-
-        location === '/login' ? login.classList.add('switches__switch--active') : register.classList.add('switches__switch--active')
-    }, [])
 
     const switchTab = e => {
         const clickedTab = e.target
@@ -31,14 +20,14 @@ const Form = () => {
         <div className="form">
             <Router>
                 <div className="form__switches">
-                    <Link onClick={switchTab} to='/login' className="switches__switch">zaloguj</Link>
-                    <Link onClick={switchTab} to='/register' className="switches__switch">zarejestruj</Link>
+                    <Link onClick={switchTab} to='/home/login' className="switches__switch switches__switch--active">zaloguj</Link>
+                    <Link onClick={switchTab} to='/home/register' className="switches__switch">zarejestruj</Link>
                 </div>
 
                 <div className="form__content">
                     <Switch>
-                        <Route exac path='/login' component={Login}/>
-                        <Route exac path='/register' component={Register}/>
+                        <Route exac path='/home/login' component={Login}/>
+                        <Route exac path='/home/register' component={Register}/>
                     </Switch>
                 </div>
             </Router>
