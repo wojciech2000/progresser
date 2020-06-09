@@ -11,6 +11,36 @@ import History from './History'
 
 function Nav() {
 
+    const toggleNav = () => {
+
+        const nav = document.querySelector('.nav')
+
+        nav.classList.toggle('nav--active')
+
+
+        const lines = document.querySelectorAll('.hamburger__line')
+
+        lines.forEach((line,index) => {
+            line.classList.toggle(`hamburger__line${index+1}--active`)
+        })
+
+
+        const lis = document.querySelectorAll('nav li')
+
+        lis.forEach(li => {
+
+            li.addEventListener('click', () => {
+
+                nav.classList.remove('nav--active')
+
+                lines.forEach((line,index) => {
+                    line.classList.remove(`hamburger__line${index+1}--active`)
+                })
+
+            })
+        })
+
+    }
 
     const dispatch = useDispatch()
 
@@ -26,7 +56,7 @@ function Nav() {
             
             <Router>
 
-                <div className="hamburger">
+                <div className="hamburger" onClick={toggleNav}>
                     <div className="hamburger__line hamburger__line1"></div>
                     <div className="hamburger__line hamburger__line2"></div>
                     <div className="hamburger__line hamburger__line3"></div>
