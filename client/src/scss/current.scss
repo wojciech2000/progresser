@@ -1,0 +1,123 @@
+.current
+{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-55%);
+    background-color: rgba($color: $main-contrastColor, $alpha: .8);
+    width: 50vw;
+    height: 70%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 1% 0 2%;
+
+    &__header
+    {
+        font-size: 1.5em;
+        padding: 3% 0;
+    }
+
+    &__image
+    {
+        width: 35%;
+        height: 90%;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    &__section
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 100%;
+        width: 100%;
+        padding-bottom: 1%; 
+
+        .current__data
+        {
+            padding: 5% 0;
+            height: 80%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+
+    }
+
+    @media (max-width: 1024px) and (orientation: portrait)
+    {
+        width: 80%;
+        height: 80%;
+
+        &__header
+        {
+            font-size: 2.5em;
+        }
+
+        &__image
+        {
+            width: 50%;
+            height: 50%;
+        }
+
+        &__section
+        {
+            flex-direction: column;
+
+            .current__data
+            {
+                font-size: 1.8em;
+                align-items: center;
+                justify-content: space-evenly;
+            }
+
+        }
+    }
+
+    @media (max-width: 524px) and (orientation: portrait)
+    {
+
+        &__header
+        {
+            font-size: 4.5em;
+        }
+
+        &__image
+        {
+            width: 70%;
+        }
+
+        &__section
+        {
+            .current__data
+            {
+                font-size: 2.5em;
+            }
+        }
+    }
+
+    @media (max-width: 1024px) and (orientation: landscape)
+    {
+        width: 70%;
+
+        &__header
+        {
+            font-size: 2em;
+        }
+
+        &__section
+        {
+            .current__data
+            {
+                font-size: 1.3em;
+            }
+        }
+
+    }
+
+}

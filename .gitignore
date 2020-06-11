@@ -1,7 +1,7 @@
 #backend
 node_modules
 .env
+upload
 
 #frontend
 client/node_modules
-client/src/App.css

@@ -1,0 +1,312 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  font-family: "Francois One", sans-serif;
+  overflow: hidden;
+  font-size: 2vw;
+  margin: 0;
+  padding: 0; }
+
+ul {
+  list-style-type: none; }
+
+a {
+  text-decoration: none;
+  color: black; }
+
+.input, .login__input, .register__input {
+  position: relative; }
+  .input input, .login__input input, .register__input input {
+    position: relative;
+    border: none;
+    outline: none;
+    background: none;
+    border-bottom: 2px solid #000000;
+    font-family: "Francois One", sans-serif;
+    font-size: 0.8em;
+    z-index: 2;
+    color: white; }
+  .input label, .login__input label, .register__input label {
+    position: absolute;
+    left: 1%;
+    bottom: 0;
+    z-index: 1;
+    color: white;
+    font-size: .8em;
+    transition: all .2s ease-in-out; }
+  .input .label--active, .login__input .label--active, .register__input .label--active {
+    transform: scale(0.7) translate(-22%, -140%);
+    color: black; }
+  @media (max-width: 1024px) {
+    .input, .login__input, .register__input {
+      width: 60%; }
+      .input input, .login__input input, .register__input input {
+        width: 100%;
+        font-size: 1.2em; }
+      .input label, .login__input label, .register__input label {
+        font-size: 1.2em; } }
+  @media (max-width: 768px) {
+    .input input, .login__input input, .register__input input {
+      font-size: 1.6em; }
+    .input label, .login__input label, .register__input label {
+      font-size: 1.6em; } }
+  @media (max-width: 524px) {
+    .input input, .login__input input, .register__input input {
+      font-size: 1.8em; }
+    .input label, .login__input label, .register__input label {
+      font-size: 1.8em; } }
+
+.home-form, .login, .register {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column; }
+
+.form-submit, .login__submit, .register__submit {
+  outline: none;
+  border: none;
+  width: 35%;
+  font-size: .7em;
+  padding: 1.5% 0;
+  font-family: "Francois One", sans-serif;
+  border-radius: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: all .15s ease-in;
+  transition-property: background-color, color; }
+  .form-submit:hover, .login__submit:hover, .register__submit:hover {
+    background-color: #5E0000;
+    color: white; }
+  @media (max-width: 1024px) {
+    .form-submit, .login__submit, .register__submit {
+      font-size: .9em; } }
+  @media (max-width: 768px) {
+    .form-submit, .login__submit, .register__submit {
+      font-size: 1.3em; } }
+
+.header {
+  width: 100vw;
+  height: 65px;
+  background-color: #5E0000; }
+  .header__h1 {
+    font-family: "Black Ops One", cursive;
+    color: white;
+    padding: 18px 0 0 10px;
+    font-size: 36px;
+    margin: 0; }
+  @media (max-width: 768px) {
+    .header__cut-on-mobile {
+      display: none; } }
+
+.body {
+  width: 100%;
+  height: 100vh;
+  background: url("./pictures/body-builder.jpg") no-repeat top/cover;
+  display: flex;
+  justify-content: center;
+  position: relative; }
+
+.form {
+  width: 30%;
+  height: 35%;
+  margin-top: 15vh;
+  position: relative; }
+  .form__switches {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; }
+    .form__switches .switches__switch {
+      padding: .5% 0;
+      background-color: rgba(255, 255, 255, 0.2);
+      width: 35%;
+      color: black;
+      font-size: 0.8em;
+      text-align: center;
+      border-radius: 10px 10px 0 0;
+      cursor: pointer;
+      transition: background-color .3s ease, color .3s ease; }
+      .form__switches .switches__switch:hover {
+        background-color: rgba(94, 0, 0, 0.6); }
+      .form__switches .switches__switch--active {
+        background-color: rgba(94, 0, 0, 0.6);
+        color: white; }
+  .form__content {
+    padding: 3% 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(94, 0, 0, 0.8);
+    border-radius: 0 0 10px 10px; }
+  .form__message {
+    font-size: .7em;
+    color: #5E0000;
+    background-color: white;
+    padding: 2% 4%;
+    width: 30%;
+    position: absolute;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+    left: 50%;
+    transform: translateX(-50%); }
+  @media (max-width: 1024px) {
+    .form {
+      width: 40%;
+      height: 40%; }
+      .form .switches__switch {
+        font-size: 1.2em; }
+      .form__message {
+        font-size: 1em; } }
+  @media (max-width: 1024px) and (orientation: portrait) {
+    .form {
+      height: 25%; } }
+  @media (max-width: 768px) {
+    .form {
+      width: 60%;
+      height: 40%; }
+      .form .switches__switch {
+        font-size: 1.4em; }
+      .form__message {
+        font-size: 1.2em; } }
+  @media (max-width: 524px) {
+    .form {
+      width: 80%;
+      height: 35%; }
+      .form .switches__switch {
+        font-size: 1.8em; }
+      .form__message {
+        font-size: 1.4em; } }
+
+.hamburger {
+  width: 45px;
+  height: 30px;
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  top: -45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; }
+  .hamburger__line {
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    border-radius: 10px;
+    transition: all .2s ease-in-out; }
+  .hamburger__line1--active {
+    transform: translateY(10px) rotate(45deg); }
+  .hamburger__line2--active {
+    opacity: 0; }
+  .hamburger__line3--active {
+    transform: translateY(-10px) rotate(-45deg); }
+
+.nav {
+  position: absolute;
+  right: 0;
+  height: calc(100vh - 65px);
+  width: 30vw;
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: translateX(100%);
+  transition: transform .4s ease-in-out;
+  z-index: 50; }
+  .nav ul {
+    margin-top: 2vw;
+    list-style-type: none;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0; }
+    .nav ul li {
+      transition: all .15s ease-in-out;
+      height: 24px;
+      font-family: "Francois One", sans-serif; }
+      .nav ul li:hover {
+        transform: scale(1.2); }
+      .nav ul li a {
+        color: white;
+        user-select: none;
+        outline: none;
+        font-size: 1.1em; }
+  .nav--active {
+    transform: translateX(0); }
+  .nav__logout {
+    cursor: pointer;
+    color: #c00a22;
+    font-size: 1.4em; }
+  @media (max-width: 768px) {
+    .nav {
+      z-index: 999;
+      width: 100vw; }
+      .nav ul li a {
+        font-size: 2.4em; }
+      .nav__logout {
+        font-size: 3.3em; } }
+
+.current {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-55%);
+  background-color: rgba(94, 0, 0, 0.8);
+  width: 50vw;
+  height: 70%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 1% 0 2%; }
+  .current__header {
+    font-size: 1.5em;
+    padding: 3% 0; }
+  .current__image {
+    width: 35%;
+    height: 90%;
+    border-radius: 10px;
+    object-fit: cover; }
+  .current__section {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 1%; }
+    .current__section .current__data {
+      padding: 5% 0;
+      height: 80%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-direction: column; }
+  @media (max-width: 1024px) and (orientation: portrait) {
+    .current {
+      width: 80%;
+      height: 80%; }
+      .current__header {
+        font-size: 2.5em; }
+      .current__image {
+        width: 50%;
+        height: 50%; }
+      .current__section {
+        flex-direction: column; }
+        .current__section .current__data {
+          font-size: 1.8em;
+          align-items: center;
+          justify-content: space-evenly; } }
+  @media (max-width: 524px) and (orientation: portrait) {
+    .current__header {
+      font-size: 4.5em; }
+    .current__image {
+      width: 70%; }
+    .current__section .current__data {
+      font-size: 2.5em; } }
+  @media (max-width: 1024px) and (orientation: landscape) {
+    .current {
+      width: 70%; }
+      .current__header {
+        font-size: 2em; }
+      .current__section .current__data {
+        font-size: 1.3em; } }

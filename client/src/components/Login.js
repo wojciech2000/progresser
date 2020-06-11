@@ -33,14 +33,8 @@ function Login() {
                     }
                     else
                     {
-                        console.log(res)
                         const auth = res.headers.auth
                         sessionStorage.setItem('token', auth)
-
-                        axios.get('/logged/fetch-all-data', {headers: { auth }})
-                        .catch(err => {
-                            console.log(err)
-                        })
 
                         dispatch(getAllData('/logged/fetch-all-data'))
                         dispatch(getAllDataNames())
