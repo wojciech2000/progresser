@@ -1,9 +1,9 @@
 import types from './dataNamesTypes'
 import produce from 'immer'
 
-const datasName = []
+const dataNames = []
 
-const reducer = (state = datasName, action) => {
+const reducer = (state = dataNames, action) => {
 
     switch (action.type) {
         case types.ADD_DATA_NAME:

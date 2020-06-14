@@ -86,6 +86,23 @@ router.get('/fetch-all-data', verifyToken, async (req,res)=>
     }
 })
 
+router.get('/fetch-current-data', verifyToken, async (req,res)=>
+{
+    try {
+
+        const user = await newUser.findById(req.user._id)
+ 
+        if(user)
+        {
+            res.send(user.Datas[user.Datas.length - 1])
+        }
+
+
+    } catch (error) {
+        res.send(error)
+    }
+})
+
 router.get('/schema-properties', (req,res) => {
 
     const SchemaProperties = Object.getOwnPropertyNames(SchemaOfDatas.schema.obj)

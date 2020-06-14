@@ -41,8 +41,29 @@ export const DataProvider = props => {
 
     }
 
+    const LoggedMessage = incomeMessage => {
+
+        const existingMessage = document.querySelector('.logged__message')
+
+        if(!existingMessage)
+        {
+            const message = document.createElement('div')
+            message.classList.add('logged__message')
+            message.textContent = incomeMessage
+            document.querySelector('.body').appendChild(message)
+
+            const tl = gsap.timeline()
+            tl.fromTo(message, {duration: .5,x: "70", opacity: 0}, {duration: .5,x: "0", opacity: 1})
+            .to(message, {duration: .5, delay: 2.5,x: "-70", opacity: 0})
+
+            //remove div after animation
+            setTimeout(()=> message.remove() ,3500)
+        }
+
+    }
+
     return (
-        <DataContext.Provider value={{ inputActiveAnimation, HomeFormMessage }}>
+        <DataContext.Provider value={{ inputActiveAnimation, HomeFormMessage, LoggedMessage }}>
             {props.children}
         </DataContext.Provider>
     )

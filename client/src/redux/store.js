@@ -6,7 +6,7 @@ import reducerDatasName from './dataNames/dataNamesReducer'
 
 const rootReducer = combineReducers({
     datas: reducerDatas,
-    datasName: reducerDatasName
+    dataNames: reducerDatasName
 })
 
 const store = createStore(rootReducer, (composeWithDevTools(applyMiddleware(thunk))))

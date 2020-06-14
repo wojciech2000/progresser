@@ -9,7 +9,7 @@ import { BrowserRouter as Router,Switch, Route, Redirect } from 'react-router-do
 function Body() {
 
     //this data is download by logging in and remove by logging out
-    const checkIfUserIsLogged = useSelector(state => state.datasName)
+    const checkIfUserIsLogged = useSelector(state => state.dataNames)
     const dispatch = useDispatch()
 
     useEffect(() => {

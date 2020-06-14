@@ -31,7 +31,7 @@ function Current() {
 
     return (
         <div className="current">
-            <div className="current__header">{currentData && currentData.Date}</div>
+            <h2 className="current__header">{currentData && currentData.Date}</h2>
             <div className="current__section">
                 {displayData('image')}
                 <div className="current__data">
