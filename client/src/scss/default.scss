@@ -169,4 +169,12 @@ a
     transform: translate(-50%,-50%);
     z-index: 100;
     border-radius: 10px;
+
+    @media (max-width: 1024px) and (orientation: portrait)
+    {
+        width: 45%;
+        font-size: 2.5em;
+        padding: 5% 3%;
+    }
+
 }

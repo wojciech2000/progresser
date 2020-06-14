@@ -29,8 +29,6 @@ function AddData() {
     const transitionAnimation = (fadeOut, fadeIn) => {
         const tl = gsap.timeline()
 
-        console.log()
-
         tl.to(fadeOut, {x: fadeOut.classList.contains('select-data') ? 100 : -100, opacity: 0} )
         .fromTo(fadeIn, { x: fadeOut.classList.contains('select-data') ? -100 : 100, opacity: 0 }, { x: 0, opacity: 1})
 
@@ -154,15 +152,12 @@ function AddData() {
             }
         })
 
-        console.log(formData)
-
         if(positiveValidation)
         {
             axios.post('/logged/add-data', formData, { headers: { auth: sessionStorage.getItem('token') } })
             .then(res => {
                 LoggedMessage('dodano')
                 dispatch(getCurrentData())
-                console.log(res)
 
             })
             .catch(err => {

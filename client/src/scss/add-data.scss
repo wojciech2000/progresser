@@ -63,6 +63,33 @@
         outline: none;
     }
 
+    @media (max-width: 1024px) and (orientation: portrait)
+    {
+        width: 75%;
+        height: auto;
+
+        &__data-name
+        {
+            width: 60%;
+            font-size: 2em;
+        }
+
+        &__confirm
+        {
+            right: -11.5%;
+        }
+
+    }
+
+    @media (max-width: 524px) and (orientation: portrait)
+    {
+        &__data-name
+        {
+            width: 60%;
+            margin: 5% 0;
+        }
+    }
+
 }
 
 .chosen-data
@@ -147,6 +174,51 @@
 
     }
 
+    @media (max-width: 1024px) and (orientation: portrait)
+    {
+        flex-direction: column;
+        height: 70%;
 
+        &__input-image
+        {
+            width: 35%;
+            height: 60%;
+            margin: 5% 0;
+        }
+
+        &__back
+        {
+            left: -11.8%;
+        }
+
+        &__confirm
+        {
+            right: -12.8%;
+        }
+
+    }
+
+    @media (max-width: 1024px) and (orientation: landscape)
+    {
+        width: 75%;
+
+        &__back
+        {
+            left: -11.8%;
+        }
+
+        &__confirm
+        {
+            right: -12.8%;
+        }
+    }
+
+    @media (max-width: 524px) and (orientation: portrait)
+    {
+        &__input-image
+        {
+            width: 40%;
+        }
+    }
 
 }

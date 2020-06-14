@@ -105,6 +105,11 @@ a {
   transform: translate(-50%, -50%);
   z-index: 100;
   border-radius: 10px; }
+  @media (max-width: 1024px) and (orientation: portrait) {
+    .logged__message {
+      width: 45%;
+      font-size: 2.5em;
+      padding: 5% 3%; } }
 
 .header {
   width: 100vw;
@@ -391,6 +396,19 @@ a {
     border-radius: 0 10px 10px 0;
     border: none;
     outline: none; }
+  @media (max-width: 1024px) and (orientation: portrait) {
+    .select-data, .chosen-data {
+      width: 75%;
+      height: auto; }
+      .select-data__data-name {
+        width: 60%;
+        font-size: 2em; }
+      .select-data__confirm, .chosen-data__back, .chosen-data__confirm {
+        right: -11.5%; } }
+  @media (max-width: 524px) and (orientation: portrait) {
+    .select-data__data-name {
+      width: 60%;
+      margin: 5% 0; } }
 
 .chosen-data {
   z-index: 1;
@@ -436,3 +454,25 @@ a {
       cursor: pointer; }
       .chosen-data__input-image .input-image__label svg {
         font-size: 250%; }
+  @media (max-width: 1024px) and (orientation: portrait) {
+    .chosen-data {
+      flex-direction: column;
+      height: 70%; }
+      .chosen-data__input-image {
+        width: 35%;
+        height: 60%;
+        margin: 5% 0; }
+      .chosen-data__back {
+        left: -11.8%; }
+      .chosen-data__confirm {
+        right: -12.8%; } }
+  @media (max-width: 1024px) and (orientation: landscape) {
+    .chosen-data {
+      width: 75%; }
+      .chosen-data__back {
+        left: -11.8%; }
+      .chosen-data__confirm {
+        right: -12.8%; } }
+  @media (max-width: 524px) and (orientation: portrait) {
+    .chosen-data__input-image {
+      width: 40%; } }
