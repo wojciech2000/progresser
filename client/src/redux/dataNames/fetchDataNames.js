@@ -3,7 +3,7 @@ import actions from './dataNamesActions'
 
 const fetchDatas = async () => {
 
-    const response = await axios.get('http://localhost:5000/logged/schema-properties')
+    const response = await axios.get(document.location.origin + '/logged/schema-properties')
     const datas = response.data
 
     return datas
