@@ -4,6 +4,12 @@ $quote-font: 'Merienda One', cursive;
 $main-contrastColor: #5E0000;
 
 
+html
+{
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
 
 body
 {

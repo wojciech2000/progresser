@@ -1,9 +1,10 @@
 .body
 {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 65px);
     background: url('./pictures/body-builder.jpg') no-repeat top / cover;
     display: flex;
     justify-content: center;
+    align-items: center;
     position: relative;
 }

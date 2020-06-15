@@ -37,6 +37,7 @@ function History() {
                 return(
                     <div className="history__tab" key={id}>
                         <h2 className="tab__header">{date}</h2>
+                        <span className="tab__number">{id + 1}</span>
                         <div className="tab__section">
                             {image && <img className="tab__image" alt="zdjęcie sylwetki" src={document.location.origin + '/' + image} />}
                             <div className={image ? "tab__data" : "tab__data tab__data--just-data"}>

@@ -1,6 +1,7 @@
 .history
 {
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,13 +9,12 @@
     &__tabs
     {
         width: 80%;
-        height: 70%;
+        height: 80%;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
         overflow-y: auto;
-        margin-bottom: 5%;
 
         .history__tab
         {
@@ -24,12 +24,26 @@
             background-color: rgba($color: $main-contrastColor, $alpha: .7);
             border-radius: 10px;
             color: white;
+            position: relative;
+            z-index: 0;
 
             .tab__header
             {
                 font-size: 20px;
                 text-align: center;
                 padding: 4% 0 1%;
+            }
+
+            .tab__number
+            {
+                position: absolute;
+                right: 2%;
+                top: 5%;
+                user-select: none;
+                color: black;
+                font-size: 100px;
+                font-family: $header-font;
+                z-index: -1;
             }
 
             .tab__section
