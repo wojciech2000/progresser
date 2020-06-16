@@ -14,7 +14,7 @@ function AddData() {
     const dispatch = useDispatch()
     const [selectedData, setSelectedData] = useState([])
     const [image, setImage] = useState(null)
-    const { inputActiveAnimation, LoggedMessage } = useContext(DataContext)
+    const { inputActiveAnimation, LoggedMessage, transitionAnimation } = useContext(DataContext)
 
     const displayDataNames = () => (
             dataNames.map((name, id) => (
@@ -24,21 +24,6 @@ function AddData() {
 
     const activeStyle = e => {
         e.target.classList.toggle('select-data__data-name--active')
-    }
-
-    const transitionAnimation = (fadeOut, fadeIn) => {
-        const tl = gsap.timeline()
-
-        tl.to(fadeOut, {x: fadeOut.classList.contains('select-data') ? 100 : -100, opacity: 0} )
-        .fromTo(fadeIn, { x: fadeOut.classList.contains('select-data') ? -100 : 100, opacity: 0 }, { x: 0, opacity: 1})
-
-        setTimeout(()=> {
-            fadeOut.style.zIndex = 0
-            fadeOut.style.userSelect = 'none'
-
-            fadeIn.style.zIndex = 1
-            fadeIn.style.userSelect = 'unset'
-        }, 700)
     }
 
     const confirm = () => {

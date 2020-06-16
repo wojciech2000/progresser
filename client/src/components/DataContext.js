@@ -62,8 +62,27 @@ export const DataProvider = props => {
 
     }
 
+    const transitionAnimation = (fadeOut, fadeIn) => {
+        const tl = gsap.timeline()
+
+        let forwardAnimation = false
+
+        if(fadeOut.classList.contains('select-data') || fadeOut.classList.contains('select-number')) forwardAnimation = true
+
+        tl.to(fadeOut, {x: forwardAnimation ? 100 : -100, opacity: 0} )
+        .fromTo(fadeIn, { x: forwardAnimation ? -100 : 100, opacity: 0 }, { x: 0, opacity: 1})
+
+        setTimeout(()=> {
+            fadeOut.style.zIndex = 0
+            fadeOut.style.userSelect = 'none'
+
+            fadeIn.style.zIndex = 1
+            fadeIn.style.userSelect = 'unset'
+        }, 700)
+    }
+
     return (
-        <DataContext.Provider value={{ inputActiveAnimation, HomeFormMessage, LoggedMessage }}>
+        <DataContext.Provider value={{ inputActiveAnimation, HomeFormMessage, LoggedMessage, transitionAnimation }}>
             {props.children}
         </DataContext.Provider>
     )

@@ -116,6 +116,12 @@ a {
       font-size: 2.5em;
       padding: 5% 3%; } }
 
+.hide-arrows, .chosen-data__inputs .chosen-data__input-div .input-div__input::-webkit-outer-spin-button, .chosen-data__inputs .chosen-data__input-div .input-div__input::-webkit-inner-spin-button, .select-number__section .select-number__num1::-webkit-outer-spin-button, .select-number__section .select-number__num2::-webkit-outer-spin-button, .select-number__section .select-number__num1::-webkit-inner-spin-button, .select-number__section .select-number__num2::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0; }
+
 .header {
   width: 100vw;
   height: 65px;
@@ -384,7 +390,7 @@ a {
       border: 1px solid white; }
       .select-data__data-name--active:hover {
         background-color: black; }
-  .select-data__confirm, .chosen-data__back, .chosen-data__confirm {
+  .select-data__confirm, .chosen-data__back, .chosen-number__back, .chosen-data__confirm, .select-number__section .select-number__confirm {
     cursor: pointer;
     position: absolute;
     font-size: 2.5em;
@@ -404,7 +410,7 @@ a {
       .select-data__data-name {
         width: 60%;
         font-size: 2em; }
-      .select-data__confirm, .chosen-data__back, .chosen-data__confirm {
+      .select-data__confirm, .chosen-data__back, .chosen-number__back, .chosen-data__confirm, .select-number__section .select-number__confirm {
         right: -11.5%; } }
   @media (max-width: 524px) and (orientation: portrait) {
     .select-data__data-name {
@@ -416,7 +422,7 @@ a {
   opacity: 0;
   flex-wrap: unset;
   justify-content: space-evenly; }
-  .chosen-data__back {
+  .chosen-data__back, .chosen-number__back {
     left: -13.4%;
     right: unset;
     top: 50%;
@@ -432,12 +438,8 @@ a {
     justify-content: space-evenly;
     flex-direction: column;
     height: 100%; }
-    .chosen-data__inputs .chosen-data__input-div input {
-      width: 70%;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      margin: 0; }
+    .chosen-data__inputs .chosen-data__input-div .input-div__input {
+      width: 70%; }
   .chosen-data__input-image {
     width: 30%;
     height: 75%;
@@ -463,20 +465,119 @@ a {
         width: 35%;
         height: 60%;
         margin: 5% 0; }
-      .chosen-data__back {
+      .chosen-data__back, .chosen-number__back {
         left: -11.8%; }
       .chosen-data__confirm {
         right: -12.8%; } }
   @media (max-width: 1024px) and (orientation: landscape) {
     .chosen-data {
       width: 75%; }
-      .chosen-data__back {
+      .chosen-data__back, .chosen-number__back {
         left: -11.8%; }
       .chosen-data__confirm {
         right: -12.8%; } }
   @media (max-width: 524px) and (orientation: portrait) {
     .chosen-data__input-image {
       width: 40%; } }
+
+.select-number {
+  width: 30%;
+  height: 40%;
+  background-color: rgba(94, 0, 0, 0.7);
+  border-radius: 10px;
+  position: relative;
+  z-index: 2; }
+  .select-number__title {
+    color: white;
+    font-size: 1.3em;
+    width: 100%;
+    text-align: center;
+    padding: 2% 0; }
+  .select-number__section {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; }
+    .select-number__section .select-number__num1, .select-number__section .select-number__num2 {
+      border: none;
+      outline: none;
+      width: 20%;
+      height: 30%;
+      font-size: 1.2em;
+      border-radius: 10px;
+      text-align: center;
+      font-family: "Black Ops One", cursive;
+      border: 1px solid black; }
+    .select-number__section .select-number__confirm {
+      font-size: 2em;
+      right: -18.3%;
+      width: 18%;
+      top: 50%;
+      transform: translateY(-50%); }
+  @media (max-width: 1024px) and (orientation: portrait) {
+    .select-number {
+      width: 60%;
+      height: 30%; }
+      .select-number__title {
+        font-size: 2.2em;
+        padding: 5% 0 2%; }
+      .select-number__section .select-number__num1, .select-number__section .select-number__num2 {
+        font-size: 2.4em; }
+      .select-number__section .select-number__confirm {
+        font-size: 3em; } }
+
+.chosen-number {
+  width: 50%;
+  height: 80%;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  background-color: rgba(94, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .chosen-number__back {
+    font-size: 2em;
+    left: -12.9%; }
+  .chosen-number__data {
+    width: 50%;
+    height: 100%;
+    color: white; }
+    .chosen-number__data .data__title {
+      font-size: 1.2em;
+      text-align: center;
+      padding: 2% 0; }
+    .chosen-number__data .data__section {
+      height: 85%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-direction: column;
+      font-size: .7em; }
+      .chosen-number__data .data__section .data__image {
+        width: 120px;
+        height: 170px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 1px solid white; }
+  @media (max-width: 754px) and (orientation: landscape) {
+    .chosen-number .data__image {
+      width: 40% !important;
+      height: 50% !important; } }
+  @media (max-width: 1024px) and (orientation: portrait) {
+    .chosen-number {
+      width: 80%; }
+      .chosen-number__back {
+        left: -10%; }
+      .chosen-number__data .data__title {
+        font-size: 2em; }
+      .chosen-number__data .data__section {
+        height: 90%;
+        font-size: 1.5em; }
+        .chosen-number__data .data__section .data__image {
+          width: 70%;
+          height: 30%; } }
 
 .history {
   width: 100%;

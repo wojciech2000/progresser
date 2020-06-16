@@ -128,15 +128,17 @@
         {
             @extend .input;
 
-            input
+            .input-div__input
             {
-                width: 70%;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                appearance: none;
-                margin: 0; 
+                width: 70%;  
+                
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button
+                {
+                    @extend .hide-arrows;
+                }
+
             }
-            
         }
 
     }
