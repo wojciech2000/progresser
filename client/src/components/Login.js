@@ -1,15 +1,20 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { DataContext } from './DataContext'
 import { getAllData } from '../redux/data/fetchData'
 import { getAllDataNames } from '../redux/dataNames/fetchDataNames'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
+import gsap from 'gsap'
 
 function Login() {
 
-    const { inputActiveAnimation, HomeFormMessage } = useContext(DataContext)
+    const { inputActiveAnimation, HomeFormMessage, switchFormAnimation } = useContext(DataContext)
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        switchFormAnimation(document.querySelector('.login').children)
+    }, [])
+    
     const login = e =>
     {
         

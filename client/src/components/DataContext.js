@@ -20,6 +20,11 @@ export const DataProvider = props => {
         })
     }
 
+    const switchFormAnimation = elements => {
+        const tl = gsap.timeline()
+        tl.fromTo(elements, { opacity: 0, x: elements.length === 3 ? -80: 80}, { opacity: 1, x: 0, stagger: .2, delay: .2})
+    }
+
     const HomeFormMessage = incomeMessage => {
 
         const existingMessage = document.querySelector('.form__message')
@@ -82,7 +87,7 @@ export const DataProvider = props => {
     }
 
     return (
-        <DataContext.Provider value={{ inputActiveAnimation, HomeFormMessage, LoggedMessage, transitionAnimation }}>
+        <DataContext.Provider value={{ inputActiveAnimation, HomeFormMessage, LoggedMessage, transitionAnimation, switchFormAnimation }}>
             {props.children}
         </DataContext.Provider>
     )

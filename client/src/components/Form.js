@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import Login from './Login'
 import Register from './Register'
+import gsap from 'gsap'
 
 const Form = () => {
+
+    useEffect(() => {
+        const tl = gsap.timeline()
+        const form = document.querySelector('.form')
+        tl.from(form, { opacity: 0, x: 100})
+    }, [])
+
 
     const switchTab = e => {
         const clickedTab = e.target

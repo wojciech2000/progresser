@@ -1,10 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { DataContext } from './DataContext'
 import axios from 'axios'
+import gsap from 'gsap'
 
 function Register() {
 
-    const { inputActiveAnimation, HomeFormMessage } = useContext(DataContext)
+    const { inputActiveAnimation, HomeFormMessage, switchFormAnimation } = useContext(DataContext)
+
+    useEffect(() => {
+        switchFormAnimation(document.querySelector('.register').children)
+    }, [])
 
     const createUser = e =>
     {

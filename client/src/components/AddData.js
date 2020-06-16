@@ -5,7 +5,6 @@ import { getCurrentData } from '../redux/data/fetchData'
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa'
 import { GrSend } from 'react-icons/gr'
 import { MdInsertPhoto } from 'react-icons/md'
-import gsap from 'gsap'
 import axios from 'axios'
 
 function AddData() {
