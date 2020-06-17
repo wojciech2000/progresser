@@ -1,10 +1,11 @@
 import React, { Fragment, useContext } from 'react'
-import { BrowserRouter as Router,Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router,Switch, Route, NavLink } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import actions from '../redux/data/dataActions'
 import actionsName from '../redux/dataNames/dataNamesActions'
-
 import { DataContext } from './DataContext'
+import { AnimatePresence } from 'framer-motion'
+
 import Current from './Current'
 import AddData from './AddData'
 import Compare from './Compare'
@@ -13,7 +14,7 @@ import History from './History'
 function Nav() {
 
     const { logInLogOutTransition } = useContext(DataContext)
-
+    
     const toggleNav = () => {
 
         const nav = document.querySelector('.nav')
@@ -57,9 +58,7 @@ function Nav() {
 
     return (
         <Fragment>
-            
             <Router>
-
                 <div className="hamburger" onClick={toggleNav}>
                     <div className="hamburger__line hamburger__line1"></div>
                     <div className="hamburger__line hamburger__line2"></div>
@@ -68,25 +67,28 @@ function Nav() {
 
                 <nav className="nav">
                     <ul>
-                        <li><Link tabIndex="-1" to="/logged/current">aktualne</Link></li>
-                        <li><Link tabIndex="-1" to="/logged/add-data">dodaj</Link></li>
-                        <li><Link tabIndex="-1" to="/logged/compare">porównaj</Link></li>
-                        <li><Link tabIndex="-1" to="/logged/history">historia</Link></li>
+                        <li><NavLink tabIndex="-1" to="/logged/current">aktualne</NavLink></li>
+                        <li><NavLink tabIndex="-1" to="/logged/add-data">dodaj</NavLink></li>
+                        <li><NavLink tabIndex="-1" to="/logged/compare">porównaj</NavLink></li>
+                        <li><NavLink tabIndex="-1" to="/logged/history">historia</NavLink></li>
                         <li className="nav__logout" onClick={logOut}>wyloguj</li>
                     </ul>
                 </nav>
 
-                <Switch>
-
-                    <Route path="/logged/current" component={Current}/>
-                    <Route path="/logged/add-data" component={AddData}/>
-                    <Route path="/logged/compare" component={Compare}/>
-                    <Route path="/logged/history" component={History}/>
-
-                </Switch>
-
-            </Router>
-
+            
+                <Route render={({location}) => (
+                        <AnimatePresence>
+                            <Switch location={location} key={location.pathname}>
+            
+                                <Route exact path="/logged/current" component={Current}/>
+                                <Route exact path="/logged/add-data" component={AddData}/>
+                                <Route exact path="/logged/compare" component={Compare}/>
+                                <Route exact path="/logged/history" component={History}/>
+            
+                            </Switch>
+                        </AnimatePresence>
+                    )} /> 
+                </Router>
         </Fragment>
     )
 }

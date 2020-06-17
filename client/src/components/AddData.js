@@ -5,6 +5,7 @@ import { getCurrentData } from '../redux/data/fetchData'
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa'
 import { GrSend } from 'react-icons/gr'
 import { MdInsertPhoto } from 'react-icons/md'
+import { motion } from 'framer-motion'
 import axios from 'axios'
 
 function AddData() {
@@ -13,8 +14,8 @@ function AddData() {
     const dispatch = useDispatch()
     const [selectedData, setSelectedData] = useState([])
     const [image, setImage] = useState(null)
-    const { inputActiveAnimation, LoggedMessage, transitionAnimation } = useContext(DataContext)
-
+    const { inputActiveAnimation, LoggedMessage, transitionAnimation, pageVariants, pageTransition } = useContext(DataContext)
+    
     const displayDataNames = () => (
             dataNames.map((name, id) => (
                 <div onClick={activeStyle} className="select-data__data-name" key={id}>{name === 'image' ? 'zdjęcie' : name}</div>
@@ -153,10 +154,15 @@ function AddData() {
 
     return (
         <Fragment>
-            <div className="select-data">
+            <motion.div className="select-data"
+            initial='in'
+            animate='done'
+            exit='out'
+            variants={pageVariants}
+            transition={pageTransition}>
                 {displayDataNames()}
                 <button className="select-data__confirm" onClick={confirm}><FaArrowAltCircleRight /></button>
-            </div>
+            </motion.div>
 
             <div className="chosen-data">
                     {displayChosen('image')}

@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { DataContext } from './DataContext'
 import { useSelector } from 'react-redux'
 import boarIllustration from '../pictures/red-boar.png'
+import { motion } from 'framer-motion'
 
 function History() {
 
     const datas = useSelector(state => state.datas)
+    const { pageVariants, pageTransition } = useContext(DataContext)
 
     const display = () => {
         if(datas.length === 0)
@@ -35,7 +38,8 @@ function History() {
                 }
 
                 return(
-                    <div className="history__tab" key={id}>
+                    <div
+                    className="history__tab" key={id}>
                         <h2 className="tab__header">{date}</h2>
                         <span className="tab__number">{id + 1}</span>
                         <div className="tab__section">
@@ -54,11 +58,16 @@ function History() {
     }
 
     return (
-        <div className="history">
+        <motion.div className="history"
+        initial='in'
+        animate='done'
+        exit='out'
+        variants={pageVariants}
+        transition={pageTransition}>
             <div className="history__tabs">
                 {display()}
             </div>
-        </div>
+        </motion.div>
     )
 }
 

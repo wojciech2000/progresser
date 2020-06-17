@@ -506,7 +506,7 @@ a {
   height: 40%;
   background-color: rgba(94, 0, 0, 0.7);
   border-radius: 10px;
-  position: relative;
+  position: absolute;
   z-index: 2; }
   .select-number__title {
     color: white;
@@ -605,7 +605,8 @@ a {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  position: absolute; }
   .history__tabs {
     width: 80%;
     height: 80%;

@@ -105,8 +105,29 @@ export const DataProvider = props => {
 
     }
 
+    const pageVariants = {
+        in: {
+            opacity: 0,
+            x: '-200%',
+        },
+        done: {
+            opacity: 1,
+            x: 0,
+        },
+        out: {
+            opacity: 0,
+            x: '200%',
+        }
+    }
+
+    const pageTransition = {
+        duration: .4,
+        type: 'spring',
+        stiffness: 60
+    }
+
     return (
-        <DataContext.Provider value={{ inputActiveAnimation, HomeFormMessage, LoggedMessage, transitionAnimation, switchFormAnimation, logInLogOutTransition }}>
+        <DataContext.Provider value={{ inputActiveAnimation, HomeFormMessage, LoggedMessage, transitionAnimation, switchFormAnimation, logInLogOutTransition, pageVariants, pageTransition }}>
             {props.children}
         </DataContext.Provider>
     )

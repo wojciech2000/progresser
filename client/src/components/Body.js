@@ -38,7 +38,6 @@ function Body() {
             </Switch>
 
             {(checkIfUserIsLogged.length > 0 || sessionStorage.getItem('token')) ? <Redirect to="/logged/current" /> : <Redirect to="/home/login" />}
-
             </Router>
         </div>
     )

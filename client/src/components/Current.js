@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { DataContext } from './DataContext'
 import { useSelector } from 'react-redux'
 import boarIllustration from '../pictures/black-boar.png'
+import { motion } from 'framer-motion'
 
 function Current() {
     
     const currentData = useSelector(state => state.datas[state.datas.length-1])
+    const { pageVariants, pageTransition } = useContext(DataContext)
 
     const displayData = dataType => {
     if(!currentData && dataType==='span')
@@ -26,11 +29,15 @@ function Current() {
             })
         )
     }
-}
-
+    }
 
     return (
-        <div className="current">
+        <motion.div className="current"
+        initial='in'
+        animate='done'
+        exit='out'
+        variants={pageVariants}
+        transition={pageTransition}>
             <h2 className="current__header">{currentData && currentData.Date}</h2>
             <div className="current__section">
                 {displayData('image')}
@@ -38,7 +45,7 @@ function Current() {
                     {displayData('span')}
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
