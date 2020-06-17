@@ -86,8 +86,27 @@ export const DataProvider = props => {
         }, 700)
     }
 
+    const logInLogOutTransition = status => {
+
+        const root = document.getElementById('root')
+        const div = document.createElement('div')
+        div.classList.add('logInLogOut')
+        div.textContent = status
+
+        root.appendChild(div)
+
+        const tl = gsap.timeline()
+
+        tl.from(div, { opacity: 0, x: -100, duration: .3})
+        .to(div, { opacity: 0, x: 100, duration: .3, delay: .8 })
+
+        //clear after animation
+        setTimeout(()=> div.remove(), 2000)
+
+    }
+
     return (
-        <DataContext.Provider value={{ inputActiveAnimation, HomeFormMessage, LoggedMessage, transitionAnimation, switchFormAnimation }}>
+        <DataContext.Provider value={{ inputActiveAnimation, HomeFormMessage, LoggedMessage, transitionAnimation, switchFormAnimation, logInLogOutTransition }}>
             {props.children}
         </DataContext.Provider>
     )

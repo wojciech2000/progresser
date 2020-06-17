@@ -1,15 +1,18 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext } from 'react'
 import { BrowserRouter as Router,Switch, Route, Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import actions from '../redux/data/dataActions'
 import actionsName from '../redux/dataNames/dataNamesActions'
 
+import { DataContext } from './DataContext'
 import Current from './Current'
 import AddData from './AddData'
 import Compare from './Compare'
 import History from './History'
 
 function Nav() {
+
+    const { logInLogOutTransition } = useContext(DataContext)
 
     const toggleNav = () => {
 
@@ -46,6 +49,7 @@ function Nav() {
 
     const logOut = () =>
     {
+        logInLogOutTransition("wylogowano")
         dispatch(actions.clear())
         dispatch(actionsName.clear())
         sessionStorage.removeItem('token')

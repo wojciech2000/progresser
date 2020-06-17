@@ -4,17 +4,16 @@ import { getAllData } from '../redux/data/fetchData'
 import { getAllDataNames } from '../redux/dataNames/fetchDataNames'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
-import gsap from 'gsap'
 
 function Login() {
 
-    const { inputActiveAnimation, HomeFormMessage, switchFormAnimation } = useContext(DataContext)
+    const { inputActiveAnimation, HomeFormMessage, switchFormAnimation, logInLogOutTransition } = useContext(DataContext)
     const dispatch = useDispatch()
 
     useEffect(() => {
         switchFormAnimation(document.querySelector('.login').children)
     }, [])
-    
+
     const login = e =>
     {
         
@@ -40,7 +39,7 @@ function Login() {
                     {
                         const auth = res.headers.auth
                         sessionStorage.setItem('token', auth)
-
+                        logInLogOutTransition("zalogowano")
                         dispatch(getAllData('/logged/fetch-all-data'))
                         dispatch(getAllDataNames())
                     }

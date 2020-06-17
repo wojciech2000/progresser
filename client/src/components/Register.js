@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { DataContext } from './DataContext'
 import axios from 'axios'
-import gsap from 'gsap'
 
 function Register() {
 
