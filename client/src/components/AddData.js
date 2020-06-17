@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { DataContext } from './DataContext'
 import { useSelector, useDispatch } from 'react-redux'
 import { getCurrentData } from '../redux/data/fetchData'
@@ -7,6 +7,7 @@ import { GrSend } from 'react-icons/gr'
 import { MdInsertPhoto } from 'react-icons/md'
 import { motion } from 'framer-motion'
 import axios from 'axios'
+
 
 function AddData() {
 
@@ -153,16 +154,17 @@ function AddData() {
     }
 
     return (
-        <Fragment>
-            <motion.div className="select-data"
-            initial='in'
-            animate='done'
-            exit='out'
-            variants={pageVariants}
-            transition={pageTransition}>
+        <motion.div className="add-data"
+        initial='in'
+        animate='done'
+        exit='out'
+        variants={pageVariants}
+        transition={pageTransition}>
+            <div className="select-data"
+            >
                 {displayDataNames()}
                 <button className="select-data__confirm" onClick={confirm}><FaArrowAltCircleRight /></button>
-            </motion.div>
+            </div>
 
             <div className="chosen-data">
                     {displayChosen('image')}
@@ -173,7 +175,7 @@ function AddData() {
                 <button className="chosen-data__back" onClick={back}><FaArrowAltCircleLeft /></button>
                 <button type="submit" className="chosen-data__confirm" onClick={send}><GrSend /></button>
             </div>
-        </Fragment>
+        </motion.div>
     )
 }
 

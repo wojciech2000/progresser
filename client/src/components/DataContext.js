@@ -121,9 +121,9 @@ export const DataProvider = props => {
     }
 
     const pageTransition = {
-        duration: .4,
+        duration: .2,
         type: 'spring',
-        stiffness: 60
+        stiffness: 50
     }
 
     return (

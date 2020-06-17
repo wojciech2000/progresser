@@ -1,4 +1,4 @@
-import React, { useState, useContext, Fragment } from 'react'
+import React, { useState, useContext } from 'react'
 import { DataContext } from './DataContext'
 import { useSelector } from 'react-redux'
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa'
@@ -55,20 +55,20 @@ function Comapre() {
     )
 
     return (
-        <Fragment>
-            <motion.div className="select-number"
-            initial='in'
-            animate='done'
-            exit='out'
-            variants={pageVariants}
-            transition={pageTransition}>
+        <motion.div className="compare"
+        initial='in'
+        animate='done'
+        exit='out'
+        variants={pageVariants}
+        transition={pageTransition}>
+            <div className="select-number">
                 <h2 className="select-number__title">Wybierz numery tabel</h2>
                 <div className="select-number__section">
                     <input type="number" className="select-number__num1"/>
                     <input type="number" className="select-number__num2"/>
                     <button type="submit" className="select-number__confirm" onClick={confirm}><FaArrowAltCircleRight /></button>
                 </div>
-            </motion.div>
+            </div>
 
             <div className="chosen-number">
                 <div className="chosen-number__back" onClick={back}><FaArrowAltCircleLeft /></div>
@@ -90,7 +90,7 @@ function Comapre() {
                 </div>
             </div>
 
-        </Fragment>
+        </motion.div>
     )
 }
 
