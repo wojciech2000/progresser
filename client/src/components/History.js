@@ -1,13 +1,32 @@
 import React, { useContext } from 'react'
 import { DataContext } from './DataContext'
 import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import dataActions from '../redux/data/dataActions'
 import boarIllustration from '../pictures/red-boar.png'
 import { motion } from 'framer-motion'
+import { MdDeleteForever } from 'react-icons/md'
+import axios from 'axios'
+import gsap from 'gsap'
 
 function History() {
 
     const datas = useSelector(state => state.datas)
-    const { pageVariants, pageTransition } = useContext(DataContext)
+    const dispatch = useDispatch()
+    const { pageVariants, pageTransition, loggedMessage } = useContext(DataContext)
+
+    
+    const deleteTab = e => {
+        const tab = e.target.closest('.history__tab')
+        const tabNumber = tab.querySelector('.tab__number').textContent
+
+        const tl = gsap.timeline()
+
+        dispatch(dataActions.remove(tabNumber - 1))
+        loggedMessage('dane usunięto')
+        axios.delete(`/logged/delete-data/${datas[tabNumber-1]._id}/${datas[tabNumber-1].image && datas[tabNumber-1].image.substr(7,datas[tabNumber-1].image.length)}`, { headers: { auth: sessionStorage.getItem('token') } })
+        .catch(err => console.log(err))
+    }
 
     const display = () => {
         if(datas.length === 0)
@@ -38,8 +57,7 @@ function History() {
                 }
 
                 return(
-                    <div
-                    className="history__tab" key={id}>
+                    <div className="history__tab" key={id}>
                         <h2 className="tab__header">{date}</h2>
                         <span className="tab__number">{id + 1}</span>
                         <div className="tab__section">
@@ -48,13 +66,13 @@ function History() {
                                 {datas.map((data, key) => <span key={key}>{data}</span>)}
                             </div>
                         </div>
+                        <div className="tab__delete" onClick={deleteTab}>
+                            <MdDeleteForever />
+                        </div>
                     </div>
-                    
                 )
-
             })
         )
-
     }
 
     return (
