@@ -83,9 +83,15 @@ a
                 font-size: 1.2em;
             }
 
-                label
+            label
             {
                 font-size: 1.2em;
+            }
+
+            .label--active
+            {
+                transform: scale(.4) translate(-70%, -240%);
+                color: black;
             }
         }
 

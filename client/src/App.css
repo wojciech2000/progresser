@@ -53,7 +53,10 @@ a {
         width: 100%;
         font-size: 1.2em; }
       .input label, .login__input label, .register__input label, .chosen-data__inputs .chosen-data__input-div label {
-        font-size: 1.2em; } }
+        font-size: 1.2em; }
+      .input .label--active, .login__input .label--active, .register__input .label--active, .chosen-data__inputs .chosen-data__input-div .label--active {
+        transform: scale(0.4) translate(-70%, -240%);
+        color: black; } }
   @media (max-width: 768px) {
     .input input, .login__input input, .register__input input, .chosen-data__inputs .chosen-data__input-div input {
       font-size: 1.6em; }

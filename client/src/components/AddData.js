@@ -92,7 +92,7 @@ function AddData() {
                 {
                     return (
                         <div className="chosen-data__input-div" key={id}>
-                            <input onFocus={inputActiveAnimation} className="input-div__input" type="number" id={data.textContent} />
+                            <input onFocus={inputActiveAnimation} className="input-div__input" type="number" id={data.textContent} autoComplete='off' />
                             <label htmlFor={data.textContent}>{data.textContent}(cm)</label>
                         </div>
                     )

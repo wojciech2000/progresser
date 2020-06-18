@@ -64,8 +64,8 @@ function Comapre() {
             <div className="select-number">
                 <h2 className="select-number__title">Wybierz numery tabel</h2>
                 <div className="select-number__section">
-                    <input type="number" className="select-number__num1"/>
-                    <input type="number" className="select-number__num2"/>
+                    <input type="number" className="select-number__num1" autoComplete='off'/>
+                    <input type="number" className="select-number__num2" autoComplete='off'/>
                     <button type="submit" className="select-number__confirm" onClick={confirm}><FaArrowAltCircleRight /></button>
                 </div>
             </div>
