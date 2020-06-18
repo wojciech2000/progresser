@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 
 function Comapre() {
 
-    const { LoggedMessage, transitionAnimation, pageVariants, pageTransition } = useContext(DataContext)
+    const { loggedMessage, transitionAnimation, pageVariants, pageTransition } = useContext(DataContext)
     const store = useSelector(state => state.datas)
     const [numOne, setNumOne] = useState({})
     const [numTwo, setNumTwo] = useState({})
@@ -21,11 +21,11 @@ function Comapre() {
 
         if(store.length < num1+1 || store.length < num2+1 || num1 < 0 || num2 < 0)
         {
-            LoggedMessage('Niepoprawna liczba')
+            loggedMessage('Niepoprawna liczba')
         }
         else if(num1 === num2)
         {
-            LoggedMessage("Liczby nie mogą być takie same")
+            loggedMessage("Liczby nie mogą być takie same")
         }
         else
         {

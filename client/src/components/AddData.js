@@ -15,7 +15,7 @@ function AddData() {
     const dispatch = useDispatch()
     const [selectedData, setSelectedData] = useState([])
     const [image, setImage] = useState(null)
-    const { inputActiveAnimation, LoggedMessage, transitionAnimation, pageVariants, pageTransition } = useContext(DataContext)
+    const { inputActiveAnimation, loggedMessage, transitionAnimation, pageVariants, pageTransition } = useContext(DataContext)
     
     const displayDataNames = () => (
             dataNames.map((name, id) => (
@@ -30,7 +30,7 @@ function AddData() {
 
     const mouseUp = e => {
         e.target.classList.toggle('select-data__data-name--active')
-        TweenMax.to(e.target, { scale: 1, duration: .2, ease: Back.easeOut.config(6) })
+        TweenMax.to(e.target, { scale: 1, duration: .5, ease: Back.easeOut.config(6) })
     }
 
     const confirm = () => {
@@ -39,7 +39,7 @@ function AddData() {
         const chesenDataInputs = document.querySelector('.chosen-data__inputs')
         const chosenData = Array.from(document.querySelectorAll('.select-data__data-name--active'))
         
-        if(chosenData.length === 0) return LoggedMessage('wybierz przynajmniej jedną opcje')
+        if(chosenData.length === 0) return loggedMessage('wybierz przynajmniej jedną opcje')
 
         transitionAnimation(selectWrapper, chosenWrapper)
 
@@ -127,7 +127,7 @@ function AddData() {
             else
             {
                 positiveValidation = false
-                LoggedMessage('uzupełnij wszystkie dane')
+                loggedMessage('uzupełnij wszystkie dane')
             }
         }
 
@@ -136,7 +136,7 @@ function AddData() {
             if(!input.value)
             {
                 positiveValidation = false
-                LoggedMessage('uzupełnij wszystkie dane')
+                loggedMessage('uzupełnij wszystkie dane')
             }
             else
             {
@@ -148,12 +148,12 @@ function AddData() {
         {
             axios.post('/logged/add-data', formData, { headers: { auth: sessionStorage.getItem('token') } })
             .then(res => {
-                LoggedMessage('dodano')
+                loggedMessage('dodano')
                 dispatch(getCurrentData())
 
             })
             .catch(err => {
-                LoggedMessage('Możesz dodać tylko zdjęcie (.jpg / .png)')
+                loggedMessage('Możesz dodać tylko zdjęcie (.jpg / .png)')
             })
         }
 

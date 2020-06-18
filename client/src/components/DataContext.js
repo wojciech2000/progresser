@@ -25,7 +25,7 @@ export const DataProvider = props => {
         tl.fromTo(elements, { opacity: 0, x: elements.length === 3 ? -80: 80}, { opacity: 1, x: 0, stagger: .2, delay: .2})
     }
 
-    const HomeFormMessage = incomeMessage => {
+    const homeFormMessage = incomeMessage => {
 
         const existingMessage = document.querySelector('.form__message')
 
@@ -46,7 +46,7 @@ export const DataProvider = props => {
 
     }
 
-    const LoggedMessage = incomeMessage => {
+    const loggedMessage = incomeMessage => {
 
         const existingMessage = document.querySelector('.logged__message')
 
@@ -59,10 +59,10 @@ export const DataProvider = props => {
 
             const tl = gsap.timeline()
             tl.fromTo(message, {duration: .5,x: "70", opacity: 0}, {duration: .5,x: "0", opacity: 1})
-            .to(message, {duration: .5, delay: 2.5,x: "-70", opacity: 0})
+            .to(message, {duration: .5, delay: 1.5,x: "-70", opacity: 0})
 
             //remove div after animation
-            setTimeout(()=> message.remove() ,3500)
+            setTimeout(()=> message.remove() ,3600)
         }
 
     }
@@ -127,7 +127,7 @@ export const DataProvider = props => {
     }
 
     return (
-        <DataContext.Provider value={{ inputActiveAnimation, HomeFormMessage, LoggedMessage, transitionAnimation, switchFormAnimation, logInLogOutTransition, pageVariants, pageTransition }}>
+        <DataContext.Provider value={{ inputActiveAnimation, homeFormMessage, loggedMessage, transitionAnimation, switchFormAnimation, logInLogOutTransition, pageVariants, pageTransition }}>
             {props.children}
         </DataContext.Provider>
     )

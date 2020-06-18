@@ -7,7 +7,7 @@ import axios from 'axios'
 
 function Login() {
 
-    const { inputActiveAnimation, HomeFormMessage, switchFormAnimation, logInLogOutTransition } = useContext(DataContext)
+    const { inputActiveAnimation, homeFormMessage, switchFormAnimation, logInLogOutTransition } = useContext(DataContext)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -33,7 +33,7 @@ function Login() {
                     //If there is message, trouble occured
                     if(res.data === "Uzupełnij wszystkie pola" || res.data === "Niepoprawne hasło lub login")
                     {
-                        HomeFormMessage(res.data)
+                        homeFormMessage(res.data)
                     }
                     else
                     {

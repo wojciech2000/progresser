@@ -4,7 +4,7 @@ import axios from 'axios'
 
 function Register() {
 
-    const { inputActiveAnimation, HomeFormMessage, switchFormAnimation } = useContext(DataContext)
+    const { inputActiveAnimation, homeFormMessage, switchFormAnimation } = useContext(DataContext)
 
     useEffect(() => {
         switchFormAnimation(document.querySelector('.register').children)
@@ -29,11 +29,11 @@ function Register() {
                 //If there is message, trouble occured
                 if(res.data)
                 {
-                    HomeFormMessage(res.data)
+                    homeFormMessage(res.data)
                 }
                 else
                 {
-                    HomeFormMessage("Użytkownik został dodany")
+                    homeFormMessage("Użytkownik został dodany")
                     name.value = ""
                     password.value = ""
                     repeatPassword.value = ""
