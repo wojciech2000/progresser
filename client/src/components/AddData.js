@@ -7,7 +7,7 @@ import { GrSend } from 'react-icons/gr'
 import { MdInsertPhoto } from 'react-icons/md'
 import { motion } from 'framer-motion'
 import axios from 'axios'
-
+import { TweenMax, Power4, Back } from 'gsap'
 
 function AddData() {
 
@@ -19,12 +19,18 @@ function AddData() {
     
     const displayDataNames = () => (
             dataNames.map((name, id) => (
-                <div onClick={activeStyle} className="select-data__data-name" key={id}>{name === 'image' ? 'zdjęcie' : name}</div>
+                <div onMouseDown={mouseDown} onMouseUp={mouseUp} className="select-data__data-name" key={id}>{name === 'image' ? 'zdjęcie' : name}</div>
             ))
     )
 
-    const activeStyle = e => {
+    const mouseDown = e => {
+        TweenMax.to(e.target, { scale: .8, duration: .2, ease: Power4.easeOut })
+    }
+
+
+    const mouseUp = e => {
         e.target.classList.toggle('select-data__data-name--active')
+        TweenMax.to(e.target, { scale: 1, duration: .2, ease: Back.easeOut.config(6) })
     }
 
     const confirm = () => {
