@@ -22,9 +22,13 @@ function Current() {
     {
         // change object of data(except id and date) into arry so it be possible to use array methods
         const arrayDatas = Object.entries(currentData).slice(2, Object.entries(currentData).length)
+
+        //if there is no image center datas
+        const image = arrayDatas.find(data => data[0] === 'image')
+
         return(
             arrayDatas.map((data, id) => {
-                if(data[0] !== 'image' && dataType === 'span') return <span key={id}>{data[0]}: {data[1]}cm</span>
+                if(data[0] !== 'image' && dataType === 'span') return <span key={id} style={!image ? { width: "100%", textAlign: "center"} : undefined}>{data[0]}: {data[1]}cm</span>
                 else if(data[0] === 'image' && dataType === 'image') return <img key={id} className="current__image" alt="zdjęcie sylwetki" src={document.location.origin + '/' + data[1]} />
             })
         )
