@@ -3,7 +3,7 @@ import { DataContext } from './DataContext'
 import { useSelector, useDispatch } from 'react-redux'
 import { getCurrentData } from '../redux/data/fetchData'
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa'
-import { GrSend } from 'react-icons/gr'
+import { MdAddCircle } from 'react-icons/md'
 import { MdInsertPhoto } from 'react-icons/md'
 import { motion } from 'framer-motion'
 import axios from 'axios'
@@ -179,7 +179,7 @@ function AddData() {
                     </div>
                     
                 <button className="chosen-data__back" onClick={back}><FaArrowAltCircleLeft /></button>
-                <button type="submit" className="chosen-data__confirm" onClick={send}><GrSend /></button>
+                <button type="submit" className="chosen-data__confirm" onClick={send}><MdAddCircle /></button>
             </div>
         </motion.div>
     )

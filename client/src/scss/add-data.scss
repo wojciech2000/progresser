@@ -69,6 +69,15 @@
         border-radius: 0 10px 10px 0;
         border: none;
         outline: none;
+        transition: all .3s ease-in-out;
+        transition-property: background-color, color;
+
+        &:hover
+        {
+            background-color: black;
+            color: white;
+        }
+
     }
 
     @media (max-width: 1024px) and (orientation: portrait)
@@ -122,8 +131,9 @@
     &__confirm
     {
         @extend .select-data__confirm;
-        right: -14.3%;
-        padding: 2.5% 3.5% 2.5% 2.5%;
+        right: -14.4%;
+        font-size: 2.8em;
+
     }
     
     &__inputs

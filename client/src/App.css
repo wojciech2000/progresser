@@ -434,7 +434,12 @@ a {
     padding: 2.5%;
     border-radius: 0 10px 10px 0;
     border: none;
-    outline: none; }
+    outline: none;
+    transition: all .3s ease-in-out;
+    transition-property: background-color, color; }
+    .select-data__confirm:hover, .chosen-data__back:hover, .chosen-number__back:hover, .chosen-data__confirm:hover, .select-number__section .select-number__confirm:hover {
+      background-color: black;
+      color: white; }
   @media (max-width: 1024px) and (orientation: portrait) {
     .select-data, .chosen-data {
       width: 75%;
@@ -462,8 +467,8 @@ a {
     border-radius: 10px 0 0 10px;
     user-select: none; }
   .chosen-data__confirm {
-    right: -14.3%;
-    padding: 2.5% 3.5% 2.5% 2.5%; }
+    right: -14.4%;
+    font-size: 2.8em; }
   .chosen-data__inputs {
     display: flex;
     align-items: center;
