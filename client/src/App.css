@@ -352,7 +352,7 @@ a {
   @media (max-width: 1024px) and (orientation: portrait) {
     .current {
       width: 80%;
-      height: 80%; }
+      height: fit-content; }
       .current__header {
         font-size: 2.5em; }
       .current__image {
