@@ -28,42 +28,40 @@ export const DataProvider = props => {
     const homeFormMessage = incomeMessage => {
 
         const existingMessage = document.querySelector('.form__message')
+        existingMessage && existingMessage.remove()
 
-        if(!existingMessage)
-        {
-            const message = document.createElement('div')
-            message.classList.add('form__message')
-            message.textContent = incomeMessage
-            document.querySelector('.form').appendChild(message)
+        const message = document.createElement('div')
+        message.classList.add('form__message')
+        message.textContent = incomeMessage
+        document.querySelector('.form').appendChild(message)
 
-            const tl = gsap.timeline()
-            tl.fromTo(message, {duration: .5,x: "70", opacity: 0}, {duration: .5,x: "0", opacity: 1})
+        const tl = gsap.timeline()
+        tl.fromTo(message, {duration: .5,x: "70", opacity: 0}, {duration: .5,x: "0", opacity: 1})
             .to(message, {duration: .5, delay: 2.5,x: "0", opacity: 0})
 
-            //remove div after animation
-            setTimeout(()=> message.remove() ,3500)
-        }
+        //remove div after animation
+        setTimeout(()=> message.remove() ,3500)
+        
 
     }
 
     const loggedMessage = incomeMessage => {
 
         const existingMessage = document.querySelector('.logged__message')
+        existingMessage && existingMessage.remove()
+        
+        const message = document.createElement('div')
+        message.classList.add('logged__message')
+        message.textContent = incomeMessage
+        document.querySelector('.body').appendChild(message)
 
-        if(!existingMessage)
-        {
-            const message = document.createElement('div')
-            message.classList.add('logged__message')
-            message.textContent = incomeMessage
-            document.querySelector('.body').appendChild(message)
+        const tl = gsap.timeline()
+        tl.fromTo(message, {duration: .5,x: "70", opacity: 0}, {duration: .5,x: "0", opacity: 1})
+        .to(message, {duration: .5, delay: 1.5,x: "-70", opacity: 0})
 
-            const tl = gsap.timeline()
-            tl.fromTo(message, {duration: .5,x: "70", opacity: 0}, {duration: .5,x: "0", opacity: 1})
-            .to(message, {duration: .5, delay: 1.5,x: "-70", opacity: 0})
+        //remove div after animation
+        setTimeout(()=> message.remove() ,3600)
 
-            //remove div after animation
-            setTimeout(()=> message.remove() ,3600)
-        }
 
     }
 
