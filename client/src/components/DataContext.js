@@ -22,6 +22,7 @@ export const DataProvider = props => {
 
     const switchFormAnimation = elements => {
         const tl = gsap.timeline()
+        //if there is 3 elements it means it's a register form
         tl.fromTo(elements, { opacity: 0, x: elements.length === 3 ? -80: 80}, { opacity: 1, x: 0, stagger: .2, delay: .2})
     }
 
@@ -37,11 +38,7 @@ export const DataProvider = props => {
 
         const tl = gsap.timeline()
         tl.fromTo(message, {duration: .5,x: "70", opacity: 0}, {duration: .5,x: "0", opacity: 1})
-            .to(message, {duration: .5, delay: 2.5,x: "0", opacity: 0})
-
-        //remove div after animation
-        setTimeout(()=> message.remove() ,3500)
-        
+            .to(message, {duration: .5, delay: 2.5,x: "0", opacity: 0})      
 
     }
 
@@ -58,10 +55,6 @@ export const DataProvider = props => {
         const tl = gsap.timeline()
         tl.fromTo(message, {duration: .5,x: "70", opacity: 0}, {duration: .5,x: "0", opacity: 1})
         .to(message, {duration: .5, delay: 1.5,x: "-70", opacity: 0})
-
-        //remove div after animation
-        setTimeout(()=> message.remove() ,3600)
-
 
     }
 
@@ -86,21 +79,20 @@ export const DataProvider = props => {
 
     const logInLogOutTransition = status => {
 
+        const existinglogInLogOut = document.querySelector('.logInLogOut')
+        existinglogInLogOut && existinglogInLogOut.remove()
+
         const root = document.getElementById('root')
         const div = document.createElement('div')
         div.classList.add('logInLogOut')
         div.textContent = status
 
         root.appendChild(div)
-
         const tl = gsap.timeline()
 
         tl.from(div, { opacity: 0, x: -100, duration: .3})
         .to(div, { opacity: 0, x: 100, duration: .3, delay: .8 })
-
-        //clear after animation
-        setTimeout(()=> div.remove(), 2000)
-
+        .set(div, { display: 'none' })
     }
 
     const pageVariants = {
