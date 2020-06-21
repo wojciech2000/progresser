@@ -116,6 +116,7 @@
     opacity: 0;
     flex-wrap: unset;
     justify-content: space-evenly;
+    pointer-events: none;
 
     &__back
     {
@@ -125,7 +126,6 @@
         top: 50%;
         transform: translateY(-50%);
         border-radius: 10px 0 0 10px;
-        user-select: none;
     }
 
     &__confirm

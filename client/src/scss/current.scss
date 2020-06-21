@@ -2,7 +2,7 @@
 {
     background-color: rgba($color: $main-contrastColor, $alpha: .8);
     width: 50vw;
-    height: fit-content;
+    height: 80%;
     color: white;
     display: flex;
     align-items: center;
@@ -69,6 +69,7 @@
     @media (max-width: 1024px) and (orientation: portrait)
     {
         width: 65%;
+        height: 80%;
 
         &__header
         {
@@ -77,7 +78,8 @@
 
         &__image
         {
-            width: 40%;
+            width: 50%;
+            height: 50%;
         }
 
         &__section
@@ -117,7 +119,8 @@
 
         &__image
         {
-            width: 40%;
+            width: 50%;
+            height: 50%;
         }
 
         &__section

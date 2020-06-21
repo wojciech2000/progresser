@@ -55,6 +55,7 @@ export const DataProvider = props => {
         const tl = gsap.timeline()
         tl.fromTo(message, {duration: .5,x: "70", opacity: 0}, {duration: .5,x: "0", opacity: 1})
         .to(message, {duration: .5, delay: 1.5,x: "-70", opacity: 0})
+        .set(message, {display: "none"})
 
     }
 
@@ -71,9 +72,11 @@ export const DataProvider = props => {
         setTimeout(()=> {
             fadeOut.style.zIndex = 0
             fadeOut.style.userSelect = 'none'
+            fadeOut.style.pointerEvents = 'none'
 
             fadeIn.style.zIndex = 1
             fadeIn.style.userSelect = 'unset'
+            fadeIn.style.pointerEvents = 'all'
         }, 700)
     }
 
