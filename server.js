@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const User = require('./routes/UserRoute')
 const Querries = require('./routes/QuerriesRoute')
+const path = require('path')
 
 const PORT = process.env.PORT || 5000
 
