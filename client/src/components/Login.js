@@ -40,7 +40,7 @@ function Login() {
                         const auth = res.headers.auth
                         sessionStorage.setItem('token', auth)
                         logInLogOutTransition("zalogowano")
-                        dispatch(getAllData('/logged/fetch-all-data'))
+                        dispatch(getAllData())
                         dispatch(getAllDataNames())
                     }
                  })
