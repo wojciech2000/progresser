@@ -7,7 +7,6 @@ import boarIllustration from '../pictures/red-boar.png'
 import { motion } from 'framer-motion'
 import { MdDeleteForever } from 'react-icons/md'
 import axios from 'axios'
-import gsap from 'gsap'
 
 function History() {
 
@@ -19,8 +18,6 @@ function History() {
     const deleteTab = e => {
         const tab = e.target.closest('.history__tab')
         const tabNumber = tab.querySelector('.tab__number').textContent
-
-        const tl = gsap.timeline()
 
         dispatch(dataActions.remove(tabNumber - 1))
         loggedMessage('dane usunięto')

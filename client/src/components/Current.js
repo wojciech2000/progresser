@@ -21,8 +21,8 @@ function Current() {
     else if(currentData)
     {
         // change object of data(except id and date) into arry so it be possible to use array methods
-        const arrayDatas = Object.entries(currentData).slice(2, Object.entries(currentData).length)
-
+        const arrayDatas = Object.entries(currentData).filter(value => value[0] !== 'Date' && value[0] !=='_id')
+        
         //if there is no image center datas
         const image = arrayDatas.find(data => data[0] === 'image')
 
