@@ -13,6 +13,7 @@ import { AnimatePresence } from "framer-motion";
 
 import Current from "./Current";
 import AddData from "./AddData";
+import AddDataSend from "./AddDataSend";
 import Compare from "./Compare";
 import History from "./History";
 
@@ -95,6 +96,11 @@ function Nav() {
               <Switch location={location} key={location.pathname}>
                 <Route exact path='/logged/current' component={Current} />
                 <Route exact path='/logged/add-data' component={AddData} />
+                <Route
+                  exact
+                  path='/logged/add-data-send'
+                  component={AddDataSend}
+                />
                 <Route exact path='/logged/compare' component={Compare} />
                 <Route exact path='/logged/history' component={History} />
               </Switch>

@@ -54,41 +54,9 @@ export const DataProvider = props => {
     document.querySelector(".body").appendChild(message);
 
     const tl = gsap.timeline();
-    tl.fromTo(
-      message,
-      { duration: 0.5, x: "70", opacity: 0 },
-      { duration: 0.5, x: "0", opacity: 1 }
-    )
-      .to(message, { duration: 0.5, delay: 1.5, x: "-70", opacity: 0 })
+    tl.from(message, { duration: 0.5, opacity: 0 })
+      .to(message, { duration: 0.5, delay: 1.5, opacity: 0 })
       .set(message, { display: "none" });
-  };
-
-  const transitionAnimation = (fadeOut, fadeIn) => {
-    const tl = gsap.timeline();
-
-    let forwardAnimation = false;
-
-    if (
-      fadeOut.classList.contains("select-data") ||
-      fadeOut.classList.contains("select-number")
-    )
-      forwardAnimation = true;
-
-    tl.to(fadeOut, { x: forwardAnimation ? 100 : -100, opacity: 0 }).fromTo(
-      fadeIn,
-      { x: forwardAnimation ? -100 : 100, opacity: 0 },
-      { x: 0, opacity: 1 }
-    );
-
-    setTimeout(() => {
-      fadeOut.style.zIndex = 0;
-      fadeOut.style.userSelect = "none";
-      fadeOut.style.pointerEvents = "none";
-
-      fadeIn.style.zIndex = 1;
-      fadeIn.style.userSelect = "unset";
-      fadeIn.style.pointerEvents = "all";
-    }, 700);
   };
 
   const logInLogOutTransition = status => {
@@ -123,7 +91,28 @@ export const DataProvider = props => {
     },
   };
 
+  const subPageVariants = {
+    in: {
+      opacity: 0,
+      x: "-30%",
+    },
+    done: {
+      opacity: 1,
+      x: 0,
+    },
+    out: {
+      opacity: 0,
+      x: "30%",
+    },
+  };
+
   const pageTransition = {
+    duration: 0.1,
+    type: "spring",
+    stiffness: 40,
+  };
+
+  const subPageTransition = {
     duration: 0.1,
     type: "spring",
     stiffness: 40,
@@ -135,11 +124,12 @@ export const DataProvider = props => {
         inputActiveAnimation,
         homeFormMessage,
         loggedMessage,
-        transitionAnimation,
         switchFormAnimation,
         logInLogOutTransition,
         pageVariants,
+        subPageVariants,
         pageTransition,
+        subPageTransition,
       }}>
       {props.children}
     </DataContext.Provider>
