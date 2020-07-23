@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { DataContext } from "./DataContext";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getCurrentData } from "../redux/data/fetchData";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { MdAddCircle } from "react-icons/md";
@@ -8,18 +8,17 @@ import { MdInsertPhoto } from "react-icons/md";
 import { motion } from "framer-motion";
 import axios from "axios";
 
-function AddData(props) {
+function AddData({ history }) {
   const dispatch = useDispatch();
   const [image, setImage] = useState(null);
   const {
     inputActiveAnimation,
     loggedMessage,
-    transitionAnimation,
     pageVariants,
     pageTransition,
   } = useContext(DataContext);
 
-  const back = () => props.history.push("/logged/add-data");
+  const back = () => history.push("/logged/add-data");
 
   const showImage = e => {
     const file = e.target.files[0];
@@ -37,8 +36,8 @@ function AddData(props) {
   };
 
   const displayChosen = dataType => {
-    if (props.history.location.state) {
-      return props.history.location.state.map((data, id) => {
+    if (history.location.state) {
+      return history.location.state.map((data, id) => {
         if (dataType !== "image" && data !== "zdjęcie") {
           return (
             <div className='chosen-data__input-div' key={id}>

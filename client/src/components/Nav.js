@@ -15,6 +15,7 @@ import Current from "./Current";
 import AddData from "./AddData";
 import AddDataSend from "./AddDataSend";
 import Compare from "./Compare";
+import CompareDisplay from "./CompareDisplay";
 import History from "./History";
 
 function Nav() {
@@ -102,6 +103,11 @@ function Nav() {
                   component={AddDataSend}
                 />
                 <Route exact path='/logged/compare' component={Compare} />
+                <Route
+                  exact
+                  path='/logged/compare-display'
+                  component={CompareDisplay}
+                />
                 <Route exact path='/logged/history' component={History} />
               </Switch>
             </AnimatePresence>
