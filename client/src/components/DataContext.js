@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, {createContext} from "react";
 import gsap from "gsap";
 
 export const DataContext = createContext();
@@ -17,16 +17,6 @@ export const DataProvider = props => {
     });
   };
 
-  const switchFormAnimation = elements => {
-    const tl = gsap.timeline();
-    //if there is 3 elements it means it's a register form
-    tl.fromTo(
-      elements,
-      { opacity: 0, x: elements.length === 3 ? -80 : 80 },
-      { opacity: 1, x: 0, stagger: 0.2, delay: 0.2 }
-    );
-  };
-
   const homeFormMessage = incomeMessage => {
     const existingMessage = document.querySelector(".form__message");
     existingMessage && existingMessage.remove();
@@ -39,9 +29,9 @@ export const DataProvider = props => {
     const tl = gsap.timeline();
     tl.fromTo(
       message,
-      { duration: 0.5, x: "70", opacity: 0 },
-      { duration: 0.5, x: "0", opacity: 1 }
-    ).to(message, { duration: 0.5, delay: 2.5, x: "0", opacity: 0 });
+      {duration: 0.5, x: "70", opacity: 0},
+      {duration: 0.5, x: "0", opacity: 1},
+    ).to(message, {duration: 0.5, delay: 2.5, x: "0", opacity: 0});
   };
 
   const loggedMessage = incomeMessage => {
@@ -54,9 +44,9 @@ export const DataProvider = props => {
     document.querySelector(".body").appendChild(message);
 
     const tl = gsap.timeline();
-    tl.from(message, { duration: 0.5, opacity: 0 })
-      .to(message, { duration: 0.5, delay: 1.5, opacity: 0 })
-      .set(message, { display: "none" });
+    tl.from(message, {duration: 0.5, opacity: 0})
+      .to(message, {duration: 0.5, delay: 1.5, opacity: 0})
+      .set(message, {display: "none"});
   };
 
   const logInLogOutTransition = status => {
@@ -71,9 +61,35 @@ export const DataProvider = props => {
     root.appendChild(div);
     const tl = gsap.timeline();
 
-    tl.from(div, { opacity: 0, x: -100, duration: 0.3 })
-      .to(div, { opacity: 0, x: 100, duration: 0.3, delay: 0.8 })
-      .set(div, { display: "none" });
+    tl.from(div, {opacity: 0, x: -100, duration: 0.3})
+      .to(div, {opacity: 0, x: 100, duration: 0.3, delay: 0.8})
+      .set(div, {display: "none"});
+  };
+
+  const containerVariants = {
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const childrenVariants = {
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.3,
+      },
+    },
+    loginHidden: {
+      opacity: 0,
+      x: -50,
+    },
+    registerHidden: {
+      opacity: 0,
+      x: 50,
+    },
   };
 
   const pageVariants = {
@@ -124,13 +140,15 @@ export const DataProvider = props => {
         inputActiveAnimation,
         homeFormMessage,
         loggedMessage,
-        switchFormAnimation,
         logInLogOutTransition,
+        containerVariants,
+        childrenVariants,
         pageVariants,
         subPageVariants,
         pageTransition,
         subPageTransition,
-      }}>
+      }}
+    >
       {props.children}
     </DataContext.Provider>
   );

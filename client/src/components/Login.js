@@ -1,22 +1,20 @@
-import React, { useContext, useEffect } from "react";
-import { DataContext } from "./DataContext";
-import { getAllData } from "../redux/data/fetchData";
-import { getAllDataNames } from "../redux/dataNames/fetchDataNames";
-import { useDispatch } from "react-redux";
+import React, {useContext, useEffect} from "react";
+import {DataContext} from "./DataContext";
+import {getAllData} from "../redux/data/fetchData";
+import {getAllDataNames} from "../redux/dataNames/fetchDataNames";
+import {useDispatch} from "react-redux";
 import axios from "axios";
+import {motion} from "framer-motion";
 
 function Login() {
   const {
     inputActiveAnimation,
     homeFormMessage,
-    switchFormAnimation,
     logInLogOutTransition,
+    containerVariants,
+    childrenVariants,
   } = useContext(DataContext);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    switchFormAnimation(document.querySelector(".login").children);
-  }, []);
 
   const login = e => {
     e.preventDefault();
@@ -50,27 +48,49 @@ function Login() {
   };
 
   return (
-    <form className='login' onSubmit={login}>
-      <div className='login__input'>
+    <motion.form
+      className="login"
+      onSubmit={login}
+      variants={containerVariants}
+      animate="visible"
+    >
+      <motion.div
+        className="login__input"
+        variants={childrenVariants}
+        animate="visible"
+        initial="loginHidden"
+      >
         <input
           onFocus={inputActiveAnimation}
-          type='text'
-          className='login__userName'
+          type="text"
+          className="login__userName"
         />
-        <label className='userName__label'>login</label>
-      </div>
+        <label className="userName__label">login</label>
+      </motion.div>
 
-      <div className='login__input'>
+      <motion.div
+        className="login__input"
+        variants={childrenVariants}
+        animate="visible"
+        initial="loginHidden"
+      >
         <input
           onFocus={inputActiveAnimation}
-          type='password'
-          className='login__userPassword'
+          type="password"
+          className="login__userPassword"
         />
-        <label className='userPassword__label'>haslo</label>
-      </div>
+        <label className="userPassword__label">haslo</label>
+      </motion.div>
 
-      <input className='login__submit' type='submit' value='Zaloguj się' />
-    </form>
+      <motion.input
+        className="login__submit"
+        type="submit"
+        value="Zaloguj się"
+        variants={childrenVariants}
+        animate="visible"
+        initial="loginHidden"
+      />
+    </motion.form>
   );
 }
 

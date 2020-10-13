@@ -1,17 +1,15 @@
-import React, { useContext, useEffect } from "react";
-import { DataContext } from "./DataContext";
+import React, {useContext} from "react";
+import {DataContext} from "./DataContext";
 import axios from "axios";
+import {motion} from "framer-motion";
 
 function Register() {
   const {
     inputActiveAnimation,
     homeFormMessage,
-    switchFormAnimation,
+    containerVariants,
+    childrenVariants,
   } = useContext(DataContext);
-
-  useEffect(() => {
-    switchFormAnimation(document.querySelector(".register").children);
-  }, []);
 
   const createUser = e => {
     e.preventDefault();
@@ -51,39 +49,61 @@ function Register() {
   };
 
   return (
-    <form className='register'>
-      <div className='register__input'>
+    <motion.form
+      className="register"
+      variants={containerVariants}
+      animate="visible"
+    >
+      <motion.div
+        className="register__input"
+        variants={childrenVariants}
+        animate="visible"
+        initial="registerHidden"
+      >
         <input
           onFocus={inputActiveAnimation}
-          type='text'
-          className='register__userName'
+          type="text"
+          className="register__userName"
         />
-        <label className='userName__label'>login</label>
-      </div>
-      <div className='register__input'>
+        <label className="userName__label">login</label>
+      </motion.div>
+      <motion.div
+        className="register__input"
+        variants={childrenVariants}
+        animate="visible"
+        initial="registerHidden"
+      >
         <input
           onFocus={inputActiveAnimation}
-          type='password'
-          className='register__userPassword'
+          type="password"
+          className="register__userPassword"
         />
-        <label className='userName__label'>hasło</label>
-      </div>
-      <div className='register__input'>
+        <label className="userName__label">hasło</label>
+      </motion.div>
+      <motion.div
+        className="register__input"
+        variants={childrenVariants}
+        animate="visible"
+        initial="registerHidden"
+      >
         <input
           onFocus={inputActiveAnimation}
-          type='password'
-          className='register__userPassword2'
+          type="password"
+          className="register__userPassword2"
         />
-        <label className='userName__label'>powtórz hasło</label>
-      </div>
+        <label className="userName__label">powtórz hasło</label>
+      </motion.div>
 
-      <input
-        className='register__submit'
-        type='submit'
-        value='Zarejestruj się'
+      <motion.input
+        className="register__submit"
+        type="submit"
+        value="Zarejestruj się"
         onClick={createUser}
+        variants={childrenVariants}
+        animate="visible"
+        initial="registerHidden"
       />
-    </form>
+    </motion.form>
   );
 }
 
