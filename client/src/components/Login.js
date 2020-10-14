@@ -9,7 +9,7 @@ import {motion} from "framer-motion";
 function Login() {
   const {
     inputActiveAnimation,
-    homeFormMessage,
+    setHomeMessage,
     logInLogOutTransition,
     containerVariants,
     childrenVariants,
@@ -35,7 +35,7 @@ function Login() {
           res.data === "Uzupełnij wszystkie pola" ||
           res.data === "Niepoprawne hasło lub login"
         ) {
-          homeFormMessage(res.data);
+          setHomeMessage(res.data);
         } else {
           const auth = res.headers.auth;
           sessionStorage.setItem("token", auth);
