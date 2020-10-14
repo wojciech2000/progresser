@@ -173,7 +173,7 @@ a {
     display: flex;
     justify-content: space-between; }
     .form__switches .switches__switch {
-      padding: .5% 0;
+      padding: 0.5% 0;
       background-color: rgba(255, 255, 255, 0.2);
       width: 35%;
       color: black;
@@ -181,7 +181,7 @@ a {
       text-align: center;
       border-radius: 10px 10px 0 0;
       cursor: pointer;
-      transition: background-color .3s ease, color .3s ease; }
+      transition: background-color 0.3s ease, color 0.3s ease; }
       .form__switches .switches__switch:hover {
         background-color: rgba(94, 0, 0, 0.6); }
       .form__switches .switches__switch--active {
@@ -194,16 +194,14 @@ a {
     background-color: rgba(94, 0, 0, 0.8);
     border-radius: 0 0 10px 10px; }
   .form__message {
-    font-size: .7em;
+    font-size: 0.7em;
     color: #5E0000;
     background-color: white;
     padding: 2% 4%;
     width: 30%;
-    position: absolute;
+    margin: 0 auto;
     text-align: center;
-    border-radius: 0 0 10px 10px;
-    left: 50%;
-    transform: translateX(-50%); }
+    border-radius: 0 0 10px 10px; }
   @media (max-width: 1024px) {
     .form {
       width: 40%;

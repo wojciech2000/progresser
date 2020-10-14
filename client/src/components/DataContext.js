@@ -1,4 +1,4 @@
-import React, {createContext} from "react";
+import React, {createContext, useState} from "react";
 import gsap from "gsap";
 
 export const DataContext = createContext();
@@ -16,6 +16,8 @@ export const DataProvider = props => {
       }
     });
   };
+
+  const [homeMessage, setHomeMessage] = useState("");
 
   const homeFormMessage = incomeMessage => {
     const existingMessage = document.querySelector(".form__message");
@@ -138,6 +140,8 @@ export const DataProvider = props => {
     <DataContext.Provider
       value={{
         inputActiveAnimation,
+        homeMessage,
+        setHomeMessage,
         homeFormMessage,
         loggedMessage,
         logInLogOutTransition,

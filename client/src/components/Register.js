@@ -6,7 +6,7 @@ import {motion} from "framer-motion";
 function Register() {
   const {
     inputActiveAnimation,
-    homeFormMessage,
+    setHomeMessage,
     containerVariants,
     childrenVariants,
   } = useContext(DataContext);
@@ -29,9 +29,9 @@ function Register() {
       .then(res => {
         //If there is message, trouble occured
         if (res.data) {
-          homeFormMessage(res.data);
+          setHomeMessage(res.data);
         } else {
-          homeFormMessage("Użytkownik został dodany");
+          setHomeMessage("Użytkownik został dodany");
           name.value = "";
           password.value = "";
           repeatPassword.value = "";
