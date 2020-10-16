@@ -1,15 +1,15 @@
-import React, { Fragment, useContext } from "react";
+import React, {Fragment, useContext} from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   NavLink,
 } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import {useDispatch} from "react-redux";
 import actions from "../redux/data/dataActions";
 import actionsName from "../redux/dataNames/dataNamesActions";
-import { DataContext } from "./DataContext";
-import { AnimatePresence } from "framer-motion";
+import {DataContext} from "./DataContext";
+import {AnimatePresence} from "framer-motion";
 
 import Current from "./Current";
 import AddData from "./AddData";
@@ -19,7 +19,7 @@ import CompareDisplay from "./CompareDisplay";
 import History from "./History";
 
 function Nav() {
-  const { logInLogOutTransition } = useContext(DataContext);
+  const {setLoginLogoutContent} = useContext(DataContext);
 
   const toggleNav = () => {
     const nav = document.querySelector(".nav");
@@ -48,7 +48,7 @@ function Nav() {
   const dispatch = useDispatch();
 
   const logOut = () => {
-    logInLogOutTransition("wylogowano");
+    setLoginLogoutContent("wylogowano");
     dispatch(actions.clear());
     dispatch(actionsName.clear());
     sessionStorage.removeItem("token");
@@ -57,58 +57,58 @@ function Nav() {
   return (
     <Fragment>
       <Router>
-        <div className='hamburger' onClick={toggleNav}>
-          <div className='hamburger__line hamburger__line1'></div>
-          <div className='hamburger__line hamburger__line2'></div>
-          <div className='hamburger__line hamburger__line3'></div>
+        <div className="hamburger" onClick={toggleNav}>
+          <div className="hamburger__line hamburger__line1"></div>
+          <div className="hamburger__line hamburger__line2"></div>
+          <div className="hamburger__line hamburger__line3"></div>
         </div>
 
-        <nav className='nav'>
+        <nav className="nav">
           <ul>
             <li>
-              <NavLink tabIndex='-1' to='/logged/current'>
+              <NavLink tabIndex="-1" to="/logged/current">
                 aktualne
               </NavLink>
             </li>
             <li>
-              <NavLink tabIndex='-1' to='/logged/add-data'>
+              <NavLink tabIndex="-1" to="/logged/add-data">
                 dodaj
               </NavLink>
             </li>
             <li>
-              <NavLink tabIndex='-1' to='/logged/compare'>
+              <NavLink tabIndex="-1" to="/logged/compare">
                 porównaj
               </NavLink>
             </li>
             <li>
-              <NavLink tabIndex='-1' to='/logged/history'>
+              <NavLink tabIndex="-1" to="/logged/history">
                 historia
               </NavLink>
             </li>
-            <li className='nav__logout' onClick={logOut}>
+            <li className="nav__logout" onClick={logOut}>
               wyloguj
             </li>
           </ul>
         </nav>
 
         <Route
-          render={({ location }) => (
+          render={({location}) => (
             <AnimatePresence>
               <Switch location={location} key={location.pathname}>
-                <Route exact path='/logged/current' component={Current} />
-                <Route exact path='/logged/add-data' component={AddData} />
+                <Route exact path="/logged/current" component={Current} />
+                <Route exact path="/logged/add-data" component={AddData} />
                 <Route
                   exact
-                  path='/logged/add-data-send'
+                  path="/logged/add-data-send"
                   component={AddDataSend}
                 />
-                <Route exact path='/logged/compare' component={Compare} />
+                <Route exact path="/logged/compare" component={Compare} />
                 <Route
                   exact
-                  path='/logged/compare-display'
+                  path="/logged/compare-display"
                   component={CompareDisplay}
                 />
-                <Route exact path='/logged/history' component={History} />
+                <Route exact path="/logged/history" component={History} />
               </Switch>
             </AnimatePresence>
           )}

@@ -1,6 +1,6 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
-import HomeMessage from "./HomeMessage";
+import HomeMessage from "./HomeMessageModal";
 import Login from "./Login";
 import Register from "./Register";
 

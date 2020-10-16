@@ -10,7 +10,7 @@ function Login() {
   const {
     inputActiveAnimation,
     setHomeMessage,
-    logInLogOutTransition,
+    setLoginLogoutContent,
     containerVariants,
     childrenVariants,
   } = useContext(DataContext);
@@ -39,7 +39,7 @@ function Login() {
         } else {
           const auth = res.headers.auth;
           sessionStorage.setItem("token", auth);
-          logInLogOutTransition("zalogowano");
+          setLoginLogoutContent("zalogowano");
           dispatch(getAllData());
           dispatch(getAllDataNames());
         }
