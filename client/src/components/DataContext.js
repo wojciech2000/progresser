@@ -62,45 +62,45 @@ export const DataProvider = props => {
   };
 
   const pageVariants = {
-    in: {
-      opacity: 0,
-      x: "-200%",
-    },
-    done: {
-      opacity: 1,
-      x: 0,
-    },
-    out: {
-      opacity: 0,
-      x: "200%",
-    },
+    // in: {
+    //   opacity: 0,
+    //   x: "-200%",
+    // },
+    // done: {
+    //   opacity: 1,
+    //   x: 0,
+    // },
+    // out: {
+    //   opacity: 0,
+    //   x: "200%",
+    // },
   };
 
   const subPageVariants = {
-    in: {
-      opacity: 0,
-      x: "-30%",
-    },
-    done: {
-      opacity: 1,
-      x: 0,
-    },
-    out: {
-      opacity: 0,
-      x: "30%",
-    },
+    // in: {
+    //   opacity: 0,
+    //   x: "-30%",
+    // },
+    // done: {
+    //   opacity: 1,
+    //   x: 0,
+    // },
+    // out: {
+    //   opacity: 0,
+    //   x: "30%",
+    // },
   };
 
   const pageTransition = {
-    duration: 0.1,
-    type: "spring",
-    stiffness: 40,
+    // duration: 0.1,
+    // type: "spring",
+    // stiffness: 40,
   };
 
   const subPageTransition = {
-    duration: 0.1,
-    type: "spring",
-    stiffness: 40,
+    // duration: 0.1,
+    // type: "spring",
+    // stiffness: 40,
   };
 
   return (

@@ -430,6 +430,7 @@ a {
     cursor: pointer;
     position: absolute;
     font-size: 2.5em;
+    width: 13.5%;
     right: -13.4%;
     background-color: white;
     display: flex;
@@ -461,13 +462,13 @@ a {
 .chosen-data {
   justify-content: space-evenly; }
   .chosen-data__back, .chosen-number__back {
-    left: -13.4%;
+    left: -13.5%;
     right: unset;
     top: 50%;
     transform: translateY(-50%);
     border-radius: 10px 0 0 10px; }
   .chosen-data__confirm {
-    right: -14.4%;
+    right: -13.5%;
     font-size: 2.8em; }
   .chosen-data__inputs {
     display: flex;
@@ -582,7 +583,8 @@ a {
   justify-content: center; }
   .chosen-number__back {
     font-size: 2em;
-    left: -12.9%; }
+    left: -12.9%;
+    width: auto; }
   .chosen-number__data {
     width: 50%;
     height: 100%;
