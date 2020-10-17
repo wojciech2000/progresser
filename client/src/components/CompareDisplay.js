@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
-import { DataContext } from "./DataContext";
-import { useSelector } from "react-redux";
-import { FaArrowAltCircleLeft } from "react-icons/fa";
-import { motion } from "framer-motion";
+import React, {useContext} from "react";
+import {DataContext} from "./DataContext";
+import {useSelector} from "react-redux";
+import {FaArrowAltCircleLeft} from "react-icons/fa";
+import {motion} from "framer-motion";
 
-function Comapre({ history }) {
+function Comapre({history}) {
   const store = useSelector(dataNumber => dataNumber.datas);
 
-  const { pageVariants, pageTransition } = useContext(DataContext);
+  const {subPageVariants, subPageTransition} = useContext(DataContext);
 
-  const back = () => history.push("/logged/compare");
+  const back = () => history.push("/logged/compare/choose");
 
   const display = dataArray =>
     dataArray.map((data, id) => {
@@ -23,8 +23,8 @@ function Comapre({ history }) {
         return (
           <img
             key={id}
-            className='data__image'
-            alt='zdjęcie sylwetki'
+            className="data__image"
+            alt="zdjęcie sylwetki"
             src={document.location.origin + "/" + data[1]}
           />
         );
@@ -32,37 +32,36 @@ function Comapre({ history }) {
 
   return (
     <motion.div
-      className='compare'
-      initial='in'
-      animate='done'
-      exit='out'
-      variants={pageVariants}
-      transition={pageTransition}>
-      <div className='chosen-number'>
-        <div className='chosen-number__back' onClick={back}>
-          <FaArrowAltCircleLeft />
-        </div>
-        <div className='chosen-number__data'>
-          <h2 className='data__title'>
-            {history.location.dataNumber &&
-              store[history.location.dataNumber[0]].Date}
-          </h2>
+      className="chosen-number"
+      initial="in"
+      animate="done"
+      exit="out"
+      variants={subPageVariants}
+      transition={subPageTransition}
+    >
+      <div className="chosen-number__back" onClick={back}>
+        <FaArrowAltCircleLeft />
+      </div>
+      <div className="chosen-number__data">
+        <h2 className="data__title">
+          {history.location.dataNumber &&
+            store[history.location.dataNumber[0]].Date}
+        </h2>
 
-          <div className='data__section'>
-            {history.location.dataNumber &&
-              display(Object.entries(store[history.location.dataNumber[0]]))}
-          </div>
+        <div className="data__section">
+          {history.location.dataNumber &&
+            display(Object.entries(store[history.location.dataNumber[0]]))}
         </div>
-        <div className='chosen-number__data'>
-          <h2 className='data__title'>
-            {history.location.dataNumber &&
-              store[history.location.dataNumber[1]].Date}
-          </h2>
+      </div>
+      <div className="chosen-number__data">
+        <h2 className="data__title">
+          {history.location.dataNumber &&
+            store[history.location.dataNumber[1]].Date}
+        </h2>
 
-          <div className='data__section'>
-            {history.location.dataNumber &&
-              display(Object.entries(store[history.location.dataNumber[1]]))}
-          </div>
+        <div className="data__section">
+          {history.location.dataNumber &&
+            display(Object.entries(store[history.location.dataNumber[1]]))}
         </div>
       </div>
     </motion.div>

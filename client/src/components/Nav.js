@@ -13,7 +13,6 @@ import {AnimatePresence} from "framer-motion";
 
 import Current from "./Current";
 import AddData from "./AddData";
-import AddDataSend from "./AddDataSend";
 import Compare from "./Compare";
 import CompareDisplay from "./CompareDisplay";
 import History from "./History";
@@ -71,12 +70,12 @@ function Nav() {
               </NavLink>
             </li>
             <li>
-              <NavLink tabIndex="-1" to="/logged/add-data">
+              <NavLink tabIndex="-1" to="/logged/add-data/choose">
                 dodaj
               </NavLink>
             </li>
             <li>
-              <NavLink tabIndex="-1" to="/logged/compare">
+              <NavLink tabIndex="-1" to="/logged/compare/choose">
                 porównaj
               </NavLink>
             </li>
@@ -96,13 +95,16 @@ function Nav() {
             <AnimatePresence>
               <Switch location={location} key={location.pathname}>
                 <Route exact path="/logged/current" component={Current} />
-                <Route exact path="/logged/add-data" component={AddData} />
                 <Route
                   exact
-                  path="/logged/add-data-send"
-                  component={AddDataSend}
+                  path="/logged/add-data/choose"
+                  component={AddData}
                 />
-                <Route exact path="/logged/compare" component={Compare} />
+                <Route
+                  exact
+                  path="/logged/compare/choose"
+                  component={Compare}
+                />
                 <Route
                   exact
                   path="/logged/compare-display"

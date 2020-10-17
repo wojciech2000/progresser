@@ -1,72 +1,45 @@
-import React, { useState, useContext } from "react";
-import { DataContext } from "./DataContext";
-import { useSelector } from "react-redux";
-import { FaArrowAltCircleRight } from "react-icons/fa";
-import { motion } from "framer-motion";
+import React, {useContext} from "react";
+import {DataContext} from "./DataContext";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {AnimatePresence, motion} from "framer-motion";
 
-function Comapre(props) {
-  const { loggedMessage, pageVariants, pageTransition } = useContext(
-    DataContext
-  );
+import CompareChoose from "./CompareChoose";
+import CompareDisplay from "./CompareDisplay";
 
-  const store = useSelector(state => state.datas);
-
-  const [numOne, setNumOne] = useState(0);
-  const [numTwo, setNumTwo] = useState(0);
-
-  const confirm = () => {
-    if (
-      store.length < numOne ||
-      store.length < numTwo ||
-      numOne <= 0 ||
-      numTwo <= 0
-    ) {
-      loggedMessage("Niepoprawna liczba");
-    } else if (numOne === numTwo) {
-      loggedMessage("Liczby nie mogą być takie same");
-    } else {
-      props.history.push({
-        pathname: "/logged/compare-display",
-        dataNumber: [parseInt(numOne) - 1, parseInt(numTwo) - 1],
-      });
-    }
-  };
+function Compare() {
+  const {pageVariants, pageTransition} = useContext(DataContext);
 
   return (
     <motion.div
-      className='compare'
-      initial='in'
-      animate='done'
-      exit='out'
+      className="add-data"
+      initial="in"
+      animate="done"
+      exit="out"
       variants={pageVariants}
-      transition={pageTransition}>
-      <div className='select-number'>
-        <h2 className='select-number__title'>Wybierz numery tabel</h2>
-        <div className='select-number__section'>
-          <input
-            type='number'
-            className='select-number__num1'
-            autoComplete='off'
-            value={numOne}
-            onChange={e => setNumOne(e.target.value)}
-          />
-          <input
-            type='number'
-            className='select-number__num2'
-            autoComplete='off'
-            value={numTwo}
-            onChange={e => setNumTwo(e.target.value)}
-          />
-          <button
-            type='submit'
-            className='select-number__confirm'
-            onClick={confirm}>
-            <FaArrowAltCircleRight />
-          </button>
-        </div>
-      </div>
+      transition={pageTransition}
+    >
+      <Router>
+        <Route
+          render={({location}) => (
+            <AnimatePresence>
+              <Switch location={location} key={location.pathname}>
+                <Route
+                  exact
+                  path="/logged/compare/choose"
+                  component={CompareChoose}
+                />
+                <Route
+                  exact
+                  path="/logged/compare/display"
+                  component={CompareDisplay}
+                />
+              </Switch>
+            </AnimatePresence>
+          )}
+        ></Route>
+      </Router>
     </motion.div>
   );
 }
 
-export default Comapre;
+export default Compare;

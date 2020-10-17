@@ -4,7 +4,7 @@ import {motion, AnimatePresence} from "framer-motion";
 
 const loginLogoutVariants = {
   hidden: {
-    x: -50,
+    x: 50,
     opacity: 0,
   },
   visible: {
@@ -15,7 +15,7 @@ const loginLogoutVariants = {
     },
   },
   leave: {
-    x: 50,
+    x: -50,
     opacity: 0,
     transition: {
       duration: 0.3,

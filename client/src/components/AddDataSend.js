@@ -1,24 +1,24 @@
-import React, { useState, useContext } from "react";
-import { DataContext } from "./DataContext";
-import { useDispatch } from "react-redux";
-import { getCurrentData } from "../redux/data/fetchData";
-import { FaArrowAltCircleLeft } from "react-icons/fa";
-import { MdAddCircle } from "react-icons/md";
-import { MdInsertPhoto } from "react-icons/md";
-import { motion } from "framer-motion";
+import React, {useState, useContext, Fragment} from "react";
+import {DataContext} from "./DataContext";
+import {useDispatch} from "react-redux";
+import {getCurrentData} from "../redux/data/fetchData";
+import {FaArrowAltCircleLeft} from "react-icons/fa";
+import {MdAddCircle} from "react-icons/md";
+import {MdInsertPhoto} from "react-icons/md";
+import {motion} from "framer-motion";
 import axios from "axios";
 
-function AddData({ history }) {
+function AddData({history}) {
   const dispatch = useDispatch();
   const [image, setImage] = useState(null);
   const {
     inputActiveAnimation,
     loggedMessage,
-    pageVariants,
-    pageTransition,
+    subPageVariants,
+    subPageTransition,
   } = useContext(DataContext);
 
-  const back = () => history.push("/logged/add-data");
+  const back = () => history.push("/logged/add-data/choose");
 
   const showImage = e => {
     const file = e.target.files[0];
@@ -40,13 +40,13 @@ function AddData({ history }) {
       return history.location.state.map((data, id) => {
         if (dataType !== "image" && data !== "zdjęcie") {
           return (
-            <div className='chosen-data__input-div' key={id}>
+            <div className="chosen-data__input-div" key={id}>
               <input
                 onFocus={inputActiveAnimation}
-                className='input-div__input'
-                type='number'
+                className="input-div__input"
+                type="number"
                 id={data}
-                autoComplete='off'
+                autoComplete="off"
               />
               <label htmlFor={data}>{data}(cm)</label>
             </div>
@@ -54,14 +54,14 @@ function AddData({ history }) {
         }
         if (dataType === "image" && data === "zdjęcie") {
           return (
-            <div className='chosen-data__input-image' key={id}>
+            <div className="chosen-data__input-image" key={id}>
               <input
                 onChange={showImage}
-                type='file'
-                className='input-image__input'
+                type="file"
+                className="input-image__input"
                 id={data}
               />
-              <label htmlFor={data} className='input-image__label'>
+              <label htmlFor={data} className="input-image__label">
                 <MdInsertPhoto />
               </label>
             </div>
@@ -98,7 +98,7 @@ function AddData({ history }) {
     if (positiveValidation) {
       axios
         .post("/logged/add-data", formData, {
-          headers: { auth: sessionStorage.getItem("token") },
+          headers: {auth: sessionStorage.getItem("token")},
         })
         .then(res => {
           loggedMessage("dodano");
@@ -111,24 +111,25 @@ function AddData({ history }) {
   };
 
   return (
-    <motion.div
-      className='add-data'
-      initial='in'
-      animate='done'
-      exit='out'
-      variants={pageVariants}
-      transition={pageTransition}>
-      <div className='chosen-data'>
+    <Fragment>
+      <motion.div
+        className="chosen-data"
+        initial="in"
+        animate="done"
+        exit="out"
+        variants={subPageVariants}
+        transition={subPageTransition}
+      >
         {displayChosen("image")}
-        <div className='chosen-data__inputs'>{displayChosen("data")}</div>
-        <button className='chosen-data__back' onClick={back}>
+        <div className="chosen-data__inputs">{displayChosen("data")}</div>
+        <button className="chosen-data__back" onClick={back}>
           <FaArrowAltCircleLeft />
         </button>
-        <button type='submit' className='chosen-data__confirm' onClick={send}>
+        <button type="submit" className="chosen-data__confirm" onClick={send}>
           <MdAddCircle />
         </button>
-      </div>
-    </motion.div>
+      </motion.div>
+    </Fragment>
   );
 }
 

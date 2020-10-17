@@ -1,27 +1,25 @@
-.body
-{
-    width: 100%;
-    height: calc(100vh - 65px);
-    background: url('./pictures/body-builder.jpg') no-repeat top / cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+.body {
+  width: 100%;
+  height: calc(100vh - 65px);
+  background: url("./pictures/body-builder.jpg") no-repeat top / cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-.logInLogOut
-{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: black;
-    z-index: 200;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: $header-font;
-    font-size: 5em;
+.logInLogOut {
+  position: absolute;
+  left: 0;
+  top: -65px;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 200;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $header-font;
+  font-size: 5em;
 }
