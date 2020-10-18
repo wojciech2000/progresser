@@ -29,7 +29,7 @@ function LoginLogoutModal() {
   useEffect(() => {
     const fadeout = setTimeout(() => {
       setLoginLogoutContent("");
-    }, 2000);
+    }, 1000);
 
     return () => {
       clearTimeout(fadeout);

@@ -19,21 +19,7 @@ export const DataProvider = props => {
 
   const [homeMessage, setHomeMessage] = useState("");
   const [loginLogoutContent, setLoginLogoutContent] = useState("");
-
-  const loggedMessage = incomeMessage => {
-    const existingMessage = document.querySelector(".logged__message");
-    existingMessage && existingMessage.remove();
-
-    const message = document.createElement("div");
-    message.classList.add("logged__message");
-    message.textContent = incomeMessage;
-    document.querySelector(".body").appendChild(message);
-
-    const tl = gsap.timeline();
-    tl.from(message, {duration: 0.5, opacity: 0})
-      .to(message, {duration: 0.5, delay: 1.5, opacity: 0})
-      .set(message, {display: "none"});
-  };
+  const [loggedMessage, setLoggedMessage] = useState("");
 
   const containerVariants = {
     visible: {
@@ -121,6 +107,7 @@ export const DataProvider = props => {
         loginLogoutContent,
         setLoginLogoutContent,
         loggedMessage,
+        setLoggedMessage,
         containerVariants,
         childrenVariants,
         pageVariants,

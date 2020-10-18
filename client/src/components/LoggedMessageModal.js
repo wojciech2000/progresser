@@ -2,9 +2,8 @@ import React, {useContext, useEffect} from "react";
 import {DataContext} from "./DataContext";
 import {motion, AnimatePresence} from "framer-motion";
 
-const homeMessageVariants = {
+const loggedMessageVariants = {
   hidden: {
-    x: 50,
     opacity: 0,
   },
   visible: {
@@ -20,29 +19,29 @@ const homeMessageVariants = {
 };
 
 function LoggedMessageModal() {
-  const {homeMessage, setHomeMessage} = useContext(DataContext);
+  const {loggedMessage, setLoggedMessage} = useContext(DataContext);
 
   useEffect(() => {
     const fadeout = setTimeout(() => {
-      setHomeMessage("");
+      setLoggedMessage("");
     }, 2000);
 
     return () => {
       clearTimeout(fadeout);
     };
-  }, [homeMessage]);
+  }, [loggedMessage]);
 
   return (
     <AnimatePresence>
-      {homeMessage && (
+      {loggedMessage && (
         <motion.div
-          className="form__message"
-          variants={homeMessageVariants}
+          className="logged__message"
+          variants={loggedMessageVariants}
           animate="visible"
           initial="hidden"
           exit="leave"
         >
-          {homeMessage}
+          {loggedMessage}
         </motion.div>
       )}
     </AnimatePresence>

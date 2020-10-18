@@ -5,7 +5,7 @@ import {FaArrowAltCircleRight} from "react-icons/fa";
 import {motion} from "framer-motion";
 
 function Comapre(props) {
-  const {loggedMessage, subPageVariants, subPageTransition} = useContext(
+  const {setLoggedMessage, subPageVariants, subPageTransition} = useContext(
     DataContext,
   );
 
@@ -21,9 +21,9 @@ function Comapre(props) {
       numOne <= 0 ||
       numTwo <= 0
     ) {
-      loggedMessage("Niepoprawna liczba");
+      setLoggedMessage("Niepoprawna liczba");
     } else if (numOne === numTwo) {
-      loggedMessage("Liczby nie mogą być takie same");
+      setLoggedMessage("Liczby nie mogą być takie same");
     } else {
       props.history.push({
         pathname: "/logged/compare/display",

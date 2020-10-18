@@ -1,200 +1,164 @@
-$main-font: 'Francois One', sans-serif;
-$header-font: 'Black Ops One', cursive;
-$quote-font: 'Merienda One', cursive;
-$main-contrastColor: #5E0000;
+$main-font: "Francois One", sans-serif;
+$header-font: "Black Ops One", cursive;
+$quote-font: "Merienda One", cursive;
+$main-contrastColor: #5e0000;
 
-
-html
-{
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
+html {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
 }
 
-body
-{
-    width: 100vw;
-    height: 100vh;
-    box-sizing: border-box;
-    font-family: $main-font;
-    overflow: hidden;
-    font-size: 2vw;
-    margin: 0;
-    padding: 0;
+body {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  font-family: $main-font;
+  overflow: hidden;
+  font-size: 2vw;
+  margin: 0;
+  padding: 0;
 }
 
-h2
-{
-    margin: 0;
+h2 {
+  margin: 0;
 }
 
-ul
-{
-    list-style-type: none;
+ul {
+  list-style-type: none;
 }
 
-a
-{
-    text-decoration: none;
-    color: black;
+a {
+  text-decoration: none;
+  color: black;
 }
 
-.input
-{
-        position: relative;
+.input {
+  position: relative;
 
-        input
-        {
-            position: relative;
-            border: none;
-            outline: none;
-            background: none;
-            border-bottom: 2px solid #000000;
-            font-family: $main-font;    
-            font-size: 0.8em;
-            z-index: 2;
-            color: white;
-        }
-
-        label
-        {
-            position: absolute;
-            left: 1%;
-            bottom: 0;
-            z-index: 1;
-            color: white;
-            font-size: .8em;
-            transition: all .2s ease-in-out;
-        }
-
-        .label--active
-        {
-            transform: scale(.7) translate(-22%, -140%);
-            color: black;
-        }
-
-        @media (max-width: 1024px)
-        {
-            width: 60%;
-
-            input
-            {
-                width: 100%;
-                font-size: 1.2em;
-            }
-
-            label
-            {
-                font-size: 1.2em;
-            }
-
-            .label--active
-            {
-                transform: scale(.4) translate(-70%, -240%);
-                color: black;
-            }
-        }
-
-        @media (max-width: 768px)
-        {
-            input
-            {
-                font-size: 1.6em;
-            }
-
-                label
-            {
-                font-size: 1.6em;
-            }
-        }
-
-        @media (max-width: 524px)
-        {
-            input
-            {
-                font-size: 1.8em;
-            }
-
-                label
-            {
-                font-size: 1.8em;
-            }
-        }
-
-}
-
-.home-form
-{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-}
-
-.form-submit
-{
-    outline: none;
+  input {
+    position: relative;
     border: none;
-    width: 35%;
-    font-size: .7em;
-    padding: 1.5% 0;
+    outline: none;
+    background: none;
+    border-bottom: 2px solid #000000;
     font-family: $main-font;
-    border-radius: 10px;
-    border: 1px solid black;
-    cursor: pointer;
-    transition: all .15s ease-in;
-    transition-property: background-color, color;
-    
-    &:hover
-    {
-        background-color: $main-contrastColor;
-        color: white;
-    }
+    font-size: 0.8em;
+    z-index: 2;
+    color: white;
+  }
 
-    @media (max-width: 1024px)
-    {
-        font-size: .9em;
-    }
-
-    @media (max-width: 768px)
-    {
-        font-size: 1.3em;
-    }
-
-}
-
-.logged__message
-{
-    width: 20%;
-    height: fit-content;
-    text-align: center;
-    background-color: white;
-    color: $main-contrastColor;
-    border: 2px solid black;
-    padding: 2% 3%;
-    font-size: 1.2em;
+  label {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    z-index: 100;
-    border-radius: 10px;
+    left: 1%;
+    bottom: 0;
+    z-index: 1;
+    color: white;
+    font-size: 0.8em;
+    transition: all 0.2s ease-in-out;
+  }
 
-    @media (max-width: 1024px) and (orientation: portrait)
-    {
-        width: 45%;
-        font-size: 2.5em;
-        padding: 5% 3%;
+  .label--active {
+    transform: scale(0.7) translate(-22%, -140%);
+    color: black;
+  }
+
+  @media (max-width: 1024px) {
+    width: 60%;
+
+    input {
+      width: 100%;
+      font-size: 1.2em;
     }
 
+    label {
+      font-size: 1.2em;
+    }
+
+    .label--active {
+      transform: scale(0.4) translate(-70%, -240%);
+      color: black;
+    }
+  }
+
+  @media (max-width: 768px) {
+    input {
+      font-size: 1.6em;
+    }
+
+    label {
+      font-size: 1.6em;
+    }
+  }
+
+  @media (max-width: 524px) {
+    input {
+      font-size: 1.8em;
+    }
+
+    label {
+      font-size: 1.8em;
+    }
+  }
 }
 
-.hide-arrows
-{
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
+.home-form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.form-submit {
+  outline: none;
+  border: none;
+  width: 35%;
+  font-size: 0.7em;
+  padding: 1.5% 0;
+  font-family: $main-font;
+  border-radius: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: all 0.15s ease-in;
+  transition-property: background-color, color;
+
+  &:hover {
+    background-color: $main-contrastColor;
+    color: white;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 0.9em;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.3em;
+  }
+}
+
+.logged__message {
+  width: 20%;
+  text-align: center;
+  background-color: white;
+  color: $main-contrastColor;
+  border: 2px solid black;
+  padding: 2% 3%;
+  font-size: 1.2em;
+  z-index: 100;
+  border-radius: 10px;
+
+  @media (max-width: 1024px) and (orientation: portrait) {
+    width: 45%;
+    font-size: 2.5em;
+    padding: 5% 3%;
+  }
+}
+
+.hide-arrows {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
 }

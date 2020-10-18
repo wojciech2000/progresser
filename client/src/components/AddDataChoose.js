@@ -6,7 +6,7 @@ import {motion} from "framer-motion";
 
 function AddData(props) {
   const dataNames = useSelector(state => state.dataNames);
-  const {loggedMessage, subPageVariants, subPageTransition} = useContext(
+  const {setLoggedMessage, subPageVariants, subPageTransition} = useContext(
     DataContext,
   );
 
@@ -39,7 +39,7 @@ function AddData(props) {
     );
 
     if (chosenData.length === 0)
-      return loggedMessage("wybierz przynajmniej jedną opcje");
+      return setLoggedMessage("wybierz przynajmniej jedną opcje");
     else {
       props.history.push({
         pathname: "/logged/add-data/send",

@@ -11,7 +11,9 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+
 import LoginLogoutModal from "./LoginLogoutModal";
+import LoggedMessageModal from "./LoggedMessageModal";
 
 function Body() {
   const {loginLogoutContent} = useContext(DataContext);
@@ -48,6 +50,7 @@ function Body() {
         )}
       </Router>
       <LoginLogoutModal />
+      <LoggedMessageModal />
     </div>
   );
 }

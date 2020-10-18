@@ -13,7 +13,7 @@ function AddData({history}) {
   const [image, setImage] = useState(null);
   const {
     inputActiveAnimation,
-    loggedMessage,
+    setLoggedMessage,
     subPageVariants,
     subPageTransition,
   } = useContext(DataContext);
@@ -82,14 +82,14 @@ function AddData({history}) {
         formData.append("image", image);
       } else {
         positiveValidation = false;
-        loggedMessage("uzupełnij wszystkie dane");
+        setLoggedMessage("uzupełnij wszystkie dane");
       }
     }
 
     inputsNumber.forEach(input => {
       if (!input.value) {
         positiveValidation = false;
-        loggedMessage("uzupełnij wszystkie dane");
+        setLoggedMessage("uzupełnij wszystkie dane");
       } else {
         formData.append(input.getAttribute("id"), input.value);
       }
@@ -101,11 +101,11 @@ function AddData({history}) {
           headers: {auth: sessionStorage.getItem("token")},
         })
         .then(res => {
-          loggedMessage("dodano");
+          setLoggedMessage("dodano");
           dispatch(getCurrentData());
         })
         .catch(err => {
-          loggedMessage("Możesz dodać tylko zdjęcie (.jpg / .png)");
+          setLoggedMessage("Możesz dodać tylko zdjęcie (.jpg / .png)");
         });
     }
   };

@@ -1,6 +1,6 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
-import HomeMessage from "./HomeMessageModal";
+import LoggedMessageModal from "./HomeMessageModal";
 import Login from "./Login";
 import Register from "./Register";
 
@@ -42,7 +42,7 @@ const Form = () => {
             <Route exac path="/home/register" component={Register} />
           </Switch>
         </div>
-        <HomeMessage />
+        <LoggedMessageModal />
       </Router>
     </div>
   );
