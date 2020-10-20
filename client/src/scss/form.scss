@@ -1,8 +1,6 @@
 .form {
-  width: 30%;
-  height: 45%;
-  margin-bottom: 15vh;
-  position: relative;
+  width: 300px;
+  border-radius: 8px;
 
   &__switches {
     width: 100%;
@@ -10,86 +8,83 @@
     justify-content: space-between;
 
     .switches__switch {
-      padding: 0.5% 0;
-      background-color: rgba($color: #ffffff, $alpha: 0.2);
-      width: 35%;
-      color: black;
-      font-size: 0.8em;
-      text-align: center;
+      background-color: rgba($color: $main-contrastColor, $alpha: 0.8);
+      font-size: 20px;
       border-radius: 10px 10px 0 0;
-      cursor: pointer;
-      transition: background-color 0.3s ease, color 0.3s ease;
-
-      &:hover {
-        background-color: rgba($color: $main-contrastColor, $alpha: 0.6);
-      }
+      padding: 2px;
+      width: 120px;
+      text-align: center;
+      background-color: rgba($color: #ffffff, $alpha: 0.3);
+      transition: all 0.2s ease;
+      transition-property: background-color, color;
 
       &--active {
-        background-color: rgba($color: $main-contrastColor, $alpha: 0.6);
+        background-color: rgba($color: $main-contrastColor, $alpha: 0.8);
         color: white;
       }
     }
   }
 
   &__content {
-    padding: 3% 0;
-    width: 100%;
-    height: 100%;
     background-color: rgba($color: $main-contrastColor, $alpha: 0.8);
+    height: 225px;
     border-radius: 0 0 10px 10px;
   }
 
   &__message {
-    font-size: 0.7em;
-    color: $main-contrastColor;
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translate(-50%, -50%);
     background-color: white;
-    padding: 2% 4%;
-    width: 30%;
-    margin: 0 auto;
+    color: $main-contrastColor;
+    padding: 8px 12px;
     text-align: center;
-    border-radius: 0 0 10px 10px;
+    font-size: 20px;
+    border-radius: 8px;
   }
 
-  @media (max-width: 1024px) {
-    width: 40%;
-    height: 40%;
+  @media (min-width: 768px) {
+    width: 400px;
+    font-size: 20px;
 
     .switches__switch {
-      font-size: 1.2em;
+      font-size: 22px;
+      width: 150px;
+    }
+
+    &__content {
+      height: 300px;
+
+      input {
+        font-size: 21px;
+      }
     }
 
     &__message {
-      font-size: 1em;
+      font-size: 22px;
     }
   }
 
-  @media (max-width: 1024px) and (orientation: portrait) {
-    height: 25%;
-  }
-
-  @media (max-width: 768px) {
-    width: 60%;
-    height: 40%;
+  @media (min-width: 1500px) {
+    width: 500px;
+    font-size: 22px;
 
     .switches__switch {
-      font-size: 1.4em;
+      font-size: 23px;
+      width: 180px;
+    }
+
+    &__content {
+      height: 380px;
+
+      input {
+        font-size: 23px;
+      }
     }
 
     &__message {
-      font-size: 1.2em;
-    }
-  }
-
-  @media (max-width: 524px) {
-    width: 80%;
-    height: 35%;
-
-    .switches__switch {
-      font-size: 1.8em;
-    }
-
-    &__message {
-      font-size: 1.4em;
+      font-size: 25px;
     }
   }
 }

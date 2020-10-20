@@ -1,20 +1,15 @@
-.login
-{
-    @extend .home-form;
+.login {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
 
-    div
-    {
-        opacity: 0;
-    }
+  &__input {
+    @extend .input;
+  }
 
-    &__input
-    {
-        @extend .input;
-    }
-
-    &__submit
-    {
-        @extend .form-submit;
-    }
-
+  &__submit {
+    @extend .home-submit;
+  }
 }

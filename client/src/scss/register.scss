@@ -1,19 +1,11 @@
-.register
-{
-    @extend .home-form;
+.register {
+  @extend .login;
 
-    div
-    {
-        opacity: 0;
-    }
+  &__input {
+    @extend .input;
+  }
 
-    &__input
-    {
-        @extend .input;
-    }
-
-    &__submit
-    {
-        @extend .form-submit;
-    }
+  &__submit {
+    @extend .home-submit;
+  }
 }
