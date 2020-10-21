@@ -103,23 +103,22 @@ a {
   background: url("./pictures/body-builder.jpg") no-repeat top/cover;
   display: flex;
   justify-content: center;
-  align-items: center;
-  position: relative; }
+  align-items: center; }
 
 .logInLogOut {
   position: absolute;
   left: 0;
-  top: -65px;
+  top: 0;
   width: 100vw;
   height: 100vh;
+  font-size: 10vw;
   background-color: black;
   z-index: 200;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Black Ops One", cursive;
-  font-size: 5em; }
+  font-family: "Black Ops One", cursive; }
 
 .form {
   width: 300px;
@@ -196,7 +195,7 @@ a {
   cursor: pointer;
   position: absolute;
   right: 30px;
-  top: -45px;
+  top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around; }
@@ -205,7 +204,7 @@ a {
     height: 4px;
     background-color: white;
     border-radius: 10px;
-    transition: all .2s ease-in-out; }
+    transition: all 0.2s ease-in-out; }
   .hamburger__line1--active {
     transform: translateY(10px) rotate(45deg); }
   .hamburger__line2--active {
@@ -216,23 +215,22 @@ a {
 .nav {
   position: absolute;
   right: 0;
-  height: calc(100vh - 65px);
-  width: 30vw;
+  height: calc(100vh - 63px);
+  width: 100vw;
   background-color: rgba(0, 0, 0, 0.9);
   transform: translateX(100%);
-  transition: transform .4s ease-in-out;
+  transition: transform 0.4s ease-in-out;
   z-index: 50; }
   .nav ul {
-    margin-top: 2vw;
-    list-style-type: none;
     height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding: 0; }
+    padding: 0;
+    font-size: 25px; }
     .nav ul li {
-      transition: all .15s ease-in-out;
+      transition: all 0.15s ease-in-out;
       height: 24px;
       font-family: "Francois One", sans-serif; }
       .nav ul li:hover {
@@ -240,22 +238,17 @@ a {
       .nav ul li a {
         color: white;
         user-select: none;
-        outline: none;
-        font-size: 1.1em; }
+        outline: none; }
   .nav--active {
     transform: translateX(0); }
   .nav__logout {
     cursor: pointer;
-    color: #c00a22;
-    font-size: 1.4em; }
-  @media (max-width: 768px) {
+    color: #c00a22; }
+  @media (min-width: 768px) {
     .nav {
-      z-index: 999;
-      width: 100vw; }
-      .nav ul li a {
-        font-size: 2.4em; }
-      .nav__logout {
-        font-size: 3.3em; } }
+      width: 400px; }
+      .nav ul {
+        font-size: 30px; } }
 
 .current {
   background-color: rgba(94, 0, 0, 0.8);
