@@ -10,7 +10,15 @@ body {
   font-family: "Francois One", sans-serif;
   overflow: hidden;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  color: white; }
+
+*::-webkit-scrollbar {
+  background-color: transparent; }
+
+*::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 7px; }
 
 h2 {
   margin: 0; }
@@ -20,7 +28,7 @@ ul {
 
 a {
   text-decoration: none;
-  color: black; }
+  color: white; }
 
 .input, .login__input, .register__input, .chosen-data__inputs .chosen-data__input-div {
   position: relative; }
@@ -236,7 +244,6 @@ a {
       .nav ul li:hover {
         transform: scale(1.2); }
       .nav ul li a {
-        color: white;
         user-select: none;
         outline: none; }
   .nav--active {
@@ -251,88 +258,42 @@ a {
         font-size: 30px; } }
 
 .current {
+  width: 330px;
+  height: 550px;
   background-color: rgba(94, 0, 0, 0.8);
-  width: 50vw;
-  height: 80%;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  border-radius: 10px;
-  padding: 1% 0 2%; }
+  border-radius: 8px;
+  overflow: auto; }
   .current__header {
-    font-size: 1.5em;
-    padding: 3% 0; }
-  .current__image {
-    width: 35%;
-    height: 90%;
-    border-radius: 10px;
-    object-fit: cover; }
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    margin: 5px 0; }
   .current__section {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 100%;
-    width: 100%;
-    padding-bottom: 1%; }
-    .current__section .current__data {
-      padding: 5% 0;
-      height: 80%;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-evenly;
-      flex-direction: column; }
-  .current__no-data, .history__no-data {
-    width: 100%;
-    height: 100%;
+    min-height: 505px;
+    margin: 10px 0;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column; }
-    .current__no-data .no-data__span, .history__no-data .no-data__span {
-      font-size: 1.5em; }
-    .current__no-data .no-data__image, .history__no-data .no-data__image {
-      width: 60%; }
-  @media (max-width: 1024px) and (orientation: portrait) {
+  .current span {
+    margin: 15px 0; }
+  .current img {
+    width: 200px;
+    height: 300px;
+    margin: 15px 0;
+    object-fit: cover;
+    border-radius: 6px; }
+  @media (min-width: 768px) {
     .current {
-      width: 65%;
-      height: 80%; }
+      width: 700px;
+      height: 600px; }
       .current__header {
-        font-size: 2.5em; }
-      .current__image {
-        width: 50%;
-        height: 50%; }
-      .current__section {
-        flex-direction: column; }
-        .current__section .current__data {
-          font-size: 1.4em;
-          align-items: center;
-          justify-content: space-evenly; }
-      .current__no-data, .history__no-data {
-        height: 70%; }
-        .current__no-data .no-data__image, .history__no-data .no-data__image {
-          width: 80%; } }
-  @media (max-width: 524px) and (orientation: portrait) {
-    .current {
-      width: 75%; }
-      .current__header {
-        font-size: 3.5em; }
-      .current__image {
-        width: 50%;
-        height: 50%; }
-      .current__section .current__data {
-        font-size: 2em; } }
-  @media (max-width: 1024px) and (orientation: landscape) {
-    .current {
-      width: 70%; }
-      .current__header {
-        font-size: 2em; }
-      .current__section .current__data {
-        font-size: 1.3em; } }
-  @media (max-height: 524px) and (orientation: landscape) {
-    .current {
-      width: 50%; } }
+        font-size: 40px; }
+      .current__section span {
+        font-size: 20px; }
+      .current__section img {
+        width: 300px;
+        height: 400px; } }
 
 .add-data {
   width: 100%;
@@ -570,90 +531,3 @@ a {
         .chosen-number__data .data__section .data__image {
           width: 70%;
           height: 30%; } }
-
-.history {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute; }
-  .history__tabs {
-    width: 80%;
-    height: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    overflow-y: auto; }
-    .history__tabs .history__tab {
-      width: 260px;
-      height: 200px;
-      margin: 5% 3%;
-      background-color: rgba(94, 0, 0, 0.7);
-      border-radius: 10px 10px 0 10px;
-      color: white;
-      position: relative;
-      z-index: 0; }
-      .history__tabs .history__tab .tab__header {
-        font-size: 20px;
-        text-align: center;
-        padding: 4% 0 1%; }
-      .history__tabs .history__tab .tab__number {
-        position: absolute;
-        right: 2%;
-        top: 5%;
-        user-select: none;
-        color: black;
-        font-size: 100px;
-        font-family: "Black Ops One", cursive;
-        z-index: -1; }
-      .history__tabs .history__tab .tab__section {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        height: 159px; }
-        .history__tabs .history__tab .tab__section .tab__image {
-          width: 90px;
-          height: 135px;
-          border-radius: 10px;
-          object-fit: cover; }
-        .history__tabs .history__tab .tab__section .tab__data {
-          display: flex;
-          flex-direction: column;
-          font-size: 14px; }
-          .history__tabs .history__tab .tab__section .tab__data--just-data {
-            width: 100%;
-            text-align: center; }
-      .history__tabs .history__tab .tab__delete {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 30px;
-        right: 0;
-        width: 40px;
-        height: 40px;
-        color: white;
-        background-color: inherit;
-        border-radius: 0 0 10px 10px;
-        cursor: pointer;
-        transition: background-color .2s ease-in-out; }
-        .history__tabs .history__tab .tab__delete:hover {
-          background-color: #5e0000; }
-  .history__tabs::-webkit-scrollbar {
-    background-color: transparent; }
-  .history__tabs::-webkit-scrollbar-thumb {
-    background-color: white;
-    height: 30px;
-    border-radius: 7px; }
-  .history__no-data .no-data__span {
-    padding: 2% 3%;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    color: white; }
-  @media (max-width: 1024px) and (orientation: portrait) {
-    .history__tabs {
-      width: 90%; }
-      .history__tabs .history__tab {
-        margin: 8% 3%; } }
