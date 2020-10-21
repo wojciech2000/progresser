@@ -1,4 +1,4 @@
-import React, {useState, useContext, Fragment} from "react";
+import React, {useState, useContext} from "react";
 import {DataContext} from "./DataContext";
 import {useDispatch} from "react-redux";
 import {getCurrentData} from "../redux/data/fetchData";
@@ -35,39 +35,49 @@ function AddData({history}) {
     }
   };
 
-  const displayChosen = dataType => {
+  const displayChosen = () => {
     if (history.location.state) {
-      return history.location.state.map((data, id) => {
-        if (dataType !== "image" && data !== "zdjęcie") {
-          return (
-            <div className="chosen-data__input-div" key={id}>
-              <input
-                onFocus={inputActiveAnimation}
-                className="input-div__input"
-                type="number"
-                id={data}
-                autoComplete="off"
-              />
-              <label htmlFor={data}>{data}(cm)</label>
-            </div>
-          );
-        }
-        if (dataType === "image" && data === "zdjęcie") {
-          return (
-            <div className="chosen-data__input-image" key={id}>
-              <input
-                onChange={showImage}
-                type="file"
-                className="input-image__input"
-                id={data}
-              />
-              <label htmlFor={data} className="input-image__label">
-                <MdInsertPhoto />
-              </label>
-            </div>
-          );
-        }
-      });
+      //if there is image dispaly it last
+      const findImage = history.location.state.find(data => data === "zdjęcie");
+
+      const ImgOnLastPosition = history.location.state.filter(
+        data => data !== "zdjęcie",
+      );
+      ImgOnLastPosition.push("zdjęcie");
+
+      return (findImage ? ImgOnLastPosition : history.location.state).map(
+        (data, id) => {
+          if (data !== "zdjęcie") {
+            return (
+              <div className="chosen-data__input-div" key={id}>
+                <input
+                  onFocus={inputActiveAnimation}
+                  className="input-div__input"
+                  type="number"
+                  id={data}
+                  autoComplete="off"
+                />
+                <label htmlFor={data}>{data}(cm)</label>
+              </div>
+            );
+          }
+          if (data === "zdjęcie") {
+            return (
+              <div className="chosen-data__input-image" key={id}>
+                <input
+                  onChange={showImage}
+                  type="file"
+                  className="input-image__input"
+                  id={data}
+                />
+                <label htmlFor={data} className="input-image__label">
+                  <MdInsertPhoto />
+                </label>
+              </div>
+            );
+          }
+        },
+      );
     }
   };
 
@@ -111,25 +121,22 @@ function AddData({history}) {
   };
 
   return (
-    <Fragment>
-      <motion.div
-        className="chosen-data"
-        initial="in"
-        animate="done"
-        exit="out"
-        variants={subPageVariants}
-        transition={subPageTransition}
-      >
-        {displayChosen("image")}
-        <div className="chosen-data__inputs">{displayChosen("data")}</div>
-        <button className="chosen-data__back" onClick={back}>
-          <FaArrowAltCircleLeft />
-        </button>
-        <button type="submit" className="chosen-data__confirm" onClick={send}>
-          <MdAddCircle />
-        </button>
-      </motion.div>
-    </Fragment>
+    <motion.div
+      className="chosen-data"
+      initial="in"
+      animate="done"
+      exit="out"
+      variants={subPageVariants}
+      transition={subPageTransition}
+    >
+      <button className="chosen-data__back" onClick={back}>
+        <FaArrowAltCircleLeft />
+      </button>
+      <div className="chosen-data__inputs">{displayChosen()}</div>
+      <button type="submit" className="chosen-data__confirm" onClick={send}>
+        <MdAddCircle />
+      </button>
+    </motion.div>
   );
 }
 

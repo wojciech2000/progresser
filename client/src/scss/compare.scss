@@ -1,160 +1,160 @@
-.compare {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-}
+// .compare {
+//   width: 100%;
+//   height: 100%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   position: absolute;
+// }
 
-.select-number {
-  width: 30%;
-  height: 40%;
-  background-color: rgba($color: $main-contrastColor, $alpha: 0.7);
-  border-radius: 10px;
-  position: absolute;
-  z-index: 2;
+// .select-number {
+//   width: 30%;
+//   height: 40%;
+//   background-color: rgba($color: $main-contrastColor, $alpha: 0.7);
+//   border-radius: 10px;
+//   position: absolute;
+//   z-index: 2;
 
-  &__title {
-    color: white;
-    font-size: 1.3em;
-    width: 100%;
-    text-align: center;
-    padding: 2% 0;
-  }
+//   &__title {
+//     color: white;
+//     font-size: 1.3em;
+//     width: 100%;
+//     text-align: center;
+//     padding: 2% 0;
+//   }
 
-  &__section {
-    width: 100%;
-    height: 75%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+//   &__section {
+//     width: 100%;
+//     height: 75%;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-evenly;
 
-    .select-number__num1 {
-      border: none;
-      outline: none;
-      width: 20%;
-      height: 30%;
-      font-size: 1.2em;
-      border-radius: 10px;
-      text-align: center;
-      font-family: $header-font;
-      border: 1px solid black;
+//     .select-number__num1 {
+//       border: none;
+//       outline: none;
+//       width: 20%;
+//       height: 30%;
+//       font-size: 1.2em;
+//       border-radius: 10px;
+//       text-align: center;
+//       font-family: $header-font;
+//       border: 1px solid black;
 
-      &::-webkit-outer-spin-button,
-      &::-webkit-inner-spin-button {
-        @extend .hide-arrows;
-      }
-    }
+//       &::-webkit-outer-spin-button,
+//       &::-webkit-inner-spin-button {
+//         @extend .hide-arrows;
+//       }
+//     }
 
-    .select-number__num2 {
-      @extend .select-number__num1;
-    }
+//     .select-number__num2 {
+//       @extend .select-number__num1;
+//     }
 
-    .select-number__confirm {
-      @extend .select-data__confirm;
-      font-size: 2em;
-      right: -18.3%;
-      width: 18%;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  }
+//     .select-number__confirm {
+//       @extend .select-data__confirm;
+//       font-size: 2em;
+//       right: -18.3%;
+//       width: 18%;
+//       top: 50%;
+//       transform: translateY(-50%);
+//     }
+//   }
 
-  @media (max-width: 1024px) and (orientation: portrait) {
-    width: 60%;
-    height: 30%;
+//   @media (max-width: 1024px) and (orientation: portrait) {
+//     width: 60%;
+//     height: 30%;
 
-    &__title {
-      font-size: 2.2em;
-      padding: 5% 0 2%;
-    }
+//     &__title {
+//       font-size: 2.2em;
+//       padding: 5% 0 2%;
+//     }
 
-    &__section {
-      .select-number__num1 {
-        font-size: 2.4em;
-      }
+//     &__section {
+//       .select-number__num1 {
+//         font-size: 2.4em;
+//       }
 
-      .select-number__confirm {
-        font-size: 3em;
-      }
-    }
-  }
-}
+//       .select-number__confirm {
+//         font-size: 3em;
+//       }
+//     }
+//   }
+// }
 
-.chosen-number {
-  width: 50%;
-  height: 80%;
-  position: absolute;
-  background-color: rgba($color: $main-contrastColor, $alpha: 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+// .chosen-number {
+//   width: 50%;
+//   height: 80%;
+//   position: absolute;
+//   background-color: rgba($color: $main-contrastColor, $alpha: 0.7);
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
 
-  &__back {
-    @extend .chosen-data__back;
-    font-size: 2em;
-    left: -12.9%;
-    width: auto;
-  }
+//   &__back {
+//     @extend .chosen-data__back;
+//     font-size: 2em;
+//     left: -12.9%;
+//     width: auto;
+//   }
 
-  &__data {
-    width: 50%;
-    height: 100%;
-    color: white;
+//   &__data {
+//     width: 50%;
+//     height: 100%;
+//     color: white;
 
-    .data__title {
-      font-size: 1.2em;
-      text-align: center;
-      padding: 2% 0;
-    }
+//     .data__title {
+//       font-size: 1.2em;
+//       text-align: center;
+//       padding: 2% 0;
+//     }
 
-    .data__section {
-      height: 85%;
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-      flex-direction: column;
-      font-size: 0.7em;
+//     .data__section {
+//       height: 85%;
+//       display: flex;
+//       align-items: center;
+//       justify-content: space-evenly;
+//       flex-direction: column;
+//       font-size: 0.7em;
 
-      .data__image {
-        width: 120px;
-        height: 170px;
-        object-fit: cover;
-        border-radius: 10px;
-        border: 1px solid white;
-      }
-    }
-  }
+//       .data__image {
+//         width: 120px;
+//         height: 170px;
+//         object-fit: cover;
+//         border-radius: 10px;
+//         border: 1px solid white;
+//       }
+//     }
+//   }
 
-  @media (max-width: 754px) and (orientation: landscape) {
-    .data__image {
-      width: 40% !important;
-      height: 50% !important;
-    }
-  }
+//   @media (max-width: 754px) and (orientation: landscape) {
+//     .data__image {
+//       width: 40% !important;
+//       height: 50% !important;
+//     }
+//   }
 
-  @media (max-width: 1024px) and (orientation: portrait) {
-    width: 80%;
+//   @media (max-width: 1024px) and (orientation: portrait) {
+//     width: 80%;
 
-    &__back {
-      left: -10%;
-    }
+//     &__back {
+//       left: -10%;
+//     }
 
-    &__data {
-      .data__title {
-        font-size: 2em;
-      }
+//     &__data {
+//       .data__title {
+//         font-size: 2em;
+//       }
 
-      .data__section {
-        height: 90%;
-        font-size: 1.5em;
+//       .data__section {
+//         height: 90%;
+//         font-size: 1.5em;
 
-        .data__image {
-          width: 70%;
-          height: 30%;
-        }
-      }
-    }
-  }
-}
+//         .data__image {
+//           width: 70%;
+//           height: 30%;
+//         }
+//       }
+//     }
+//   }
+// }

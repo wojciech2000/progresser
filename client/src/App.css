@@ -20,6 +20,13 @@ body {
   background-color: white;
   border-radius: 7px; }
 
+*::-webkit-outer-spin-button,
+*::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0; }
+
 h2 {
   margin: 0; }
 
@@ -84,12 +91,6 @@ a {
     .logged__message {
       width: 45%;
       padding: 5% 3%; } }
-
-.hide-arrows, .chosen-data__inputs .chosen-data__input-div .input-div__input::-webkit-outer-spin-button, .chosen-data__inputs .chosen-data__input-div .input-div__input::-webkit-inner-spin-button, .select-number__section .select-number__num1::-webkit-outer-spin-button, .select-number__section .select-number__num2::-webkit-outer-spin-button, .select-number__section .select-number__num1::-webkit-inner-spin-button, .select-number__section .select-number__num2::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  margin: 0; }
 
 .header {
   width: 100vw;
@@ -262,14 +263,15 @@ a {
   height: 550px;
   background-color: rgba(94, 0, 0, 0.8);
   border-radius: 8px;
-  overflow: auto; }
+  overflow-y: auto;
+  position: absolute; }
   .current__header {
     color: white;
     text-align: center;
     font-size: 30px;
     margin: 5px 0; }
   .current__section {
-    min-height: 505px;
+    min-height: 480px;
     margin: 10px 0;
     display: flex;
     align-items: center;
@@ -289,15 +291,17 @@ a {
       height: 600px; }
       .current__header {
         font-size: 40px; }
-      .current__section span {
-        font-size: 20px; }
-      .current__section img {
-        width: 300px;
-        height: 400px; } }
+      .current__section {
+        min-height: 519px; }
+        .current__section span {
+          font-size: 20px; }
+        .current__section img {
+          width: 300px;
+          height: 400px; } }
 
 .add-data {
   width: 100%;
-  height: 100%;
+  height: calc(100%-65px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -305,23 +309,23 @@ a {
 
 .select-data, .chosen-data {
   position: absolute;
-  width: 60%;
-  height: 70%;
+  width: 250px;
+  height: 530px;
   background-color: rgba(94, 0, 0, 0.8);
   border-radius: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  z-index: 2; }
+  justify-content: space-around;
+  flex-direction: column;
+  z-index: 2;
+  padding: 10px; }
   .select-data__data-name {
     color: white;
     cursor: pointer;
     text-align: center;
-    font-size: 0.9em;
-    padding: 1% 0;
-    margin: 3% 3%;
-    width: 20%;
+    font-size: 25px;
+    width: 180px;
+    padding: 3px 0;
     border: 1px solid black;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -334,200 +338,89 @@ a {
       border: 1px solid white; }
       .select-data__data-name--active:hover {
         background-color: black; }
-  .select-data__confirm, .chosen-data__back, .chosen-number__back, .chosen-data__confirm, .select-number__section .select-number__confirm {
-    cursor: pointer;
+  .select-data__confirm, .chosen-data__back, .chosen-data__confirm {
     position: absolute;
-    font-size: 2.5em;
-    width: 13.5%;
-    right: -13.4%;
-    background-color: white;
+    right: 0;
+    transform: translateX(100%);
+    outline: none;
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2.5%;
+    font-size: 30px;
+    padding: 10px;
     border-radius: 0 10px 10px 0;
-    border: none;
-    outline: none;
-    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
     transition-property: background-color, color; }
-    .select-data__confirm:hover, .chosen-data__back:hover, .chosen-number__back:hover, .chosen-data__confirm:hover, .select-number__section .select-number__confirm:hover {
+    .select-data__confirm:hover, .chosen-data__back:hover, .chosen-data__confirm:hover {
       background-color: black;
       color: white; }
-  @media (max-width: 1024px) and (orientation: portrait) {
+  @media (min-width: 500px) {
     .select-data, .chosen-data {
-      width: 75%;
-      height: auto; }
+      width: 350px; }
+      .select-data__confirm, .chosen-data__back, .chosen-data__confirm {
+        font-size: 50px; } }
+  @media (min-width: 768px) {
+    .select-data, .chosen-data {
+      width: 600px;
+      flex-direction: row;
+      flex-wrap: wrap; }
       .select-data__data-name {
-        width: 60%;
-        font-size: 2em; }
-      .select-data__confirm, .chosen-data__back, .chosen-number__back, .chosen-data__confirm, .select-number__section .select-number__confirm {
-        right: -11.5%; } }
-  @media (max-width: 524px) and (orientation: portrait) {
-    .select-data__data-name {
-      width: 60%;
-      margin: 5% 0; } }
+        font-size: 30px;
+        margin: 10px; } }
+  @media (min-width: 1024px) {
+    .select-data, .chosen-data {
+      width: 800px; }
+      .select-data__data-name {
+        font-size: 30px; }
+      .select-data__confirm, .chosen-data__back, .chosen-data__confirm {
+        font-size: 60px; } }
 
-.chosen-data {
-  justify-content: space-evenly; }
-  .chosen-data__back, .chosen-number__back {
-    left: -13.5%;
-    right: unset;
-    top: 50%;
-    transform: translateY(-50%);
-    border-radius: 10px 0 0 10px; }
-  .chosen-data__confirm {
-    right: -13.5%;
-    font-size: 2.8em; }
-  .chosen-data__inputs {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-    height: 100%; }
-    .chosen-data__inputs .chosen-data__input-div .input-div__input {
-      width: 70%; }
-  .chosen-data__input-image {
-    width: 30%;
-    height: 75%;
-    background-color: white;
-    border-radius: 10px;
-    border: 1px solid black; }
-    .chosen-data__input-image .input-image__input {
-      display: none; }
-    .chosen-data__input-image .input-image__label {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer; }
-      .chosen-data__input-image .input-image__label svg {
-        font-size: 250%; }
-  @media (max-width: 1024px) and (orientation: portrait) {
-    .chosen-data {
-      flex-direction: column;
-      height: 70%; }
-      .chosen-data__input-image {
-        width: 35%;
-        height: 60%;
-        margin: 5% 0; }
-      .chosen-data__back, .chosen-number__back {
-        left: -11.8%; }
-      .chosen-data__confirm {
-        right: -12.8%; } }
-  @media (max-width: 1024px) and (orientation: landscape) {
-    .chosen-data {
-      width: 75%; }
-      .chosen-data__back, .chosen-number__back {
-        left: -11.8%; }
-      .chosen-data__confirm {
-        right: -12.8%; } }
-  @media (max-width: 524px) and (orientation: portrait) {
-    .chosen-data__input-image {
-      width: 40%; } }
+.chosen-data__back {
+  left: 0;
+  transform: translateX(-100%);
+  border-radius: 10px 0 0 10px; }
 
-.compare {
+.chosen-data__inputs {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-height: 100%;
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute; }
+  overflow: auto; }
+  .chosen-data__inputs * {
+    margin: 10px 0; }
 
-.select-number {
-  width: 30%;
-  height: 40%;
-  background-color: rgba(94, 0, 0, 0.7);
-  border-radius: 10px;
-  position: absolute;
-  z-index: 2; }
-  .select-number__title {
-    color: white;
-    font-size: 1.3em;
-    width: 100%;
-    text-align: center;
-    padding: 2% 0; }
-  .select-number__section {
-    width: 100%;
-    height: 75%;
+.chosen-data__input-image {
+  background-color: white;
+  width: 200px;
+  height: 300px;
+  margin: 15px 0;
+  object-fit: cover;
+  border-radius: 6px; }
+  .chosen-data__input-image svg {
+    font-size: 50px;
     display: flex;
     align-items: center;
-    justify-content: space-evenly; }
-    .select-number__section .select-number__num1, .select-number__section .select-number__num2 {
-      border: none;
-      outline: none;
-      width: 20%;
-      height: 30%;
-      font-size: 1.2em;
-      border-radius: 10px;
-      text-align: center;
-      font-family: "Black Ops One", cursive;
-      border: 1px solid black; }
-    .select-number__section .select-number__confirm {
-      font-size: 2em;
-      right: -18.3%;
-      width: 18%;
-      top: 50%;
-      transform: translateY(-50%); }
-  @media (max-width: 1024px) and (orientation: portrait) {
-    .select-number {
-      width: 60%;
-      height: 30%; }
-      .select-number__title {
-        font-size: 2.2em;
-        padding: 5% 0 2%; }
-      .select-number__section .select-number__num1, .select-number__section .select-number__num2 {
-        font-size: 2.4em; }
-      .select-number__section .select-number__confirm {
-        font-size: 3em; } }
-
-.chosen-number {
-  width: 50%;
-  height: 80%;
-  position: absolute;
-  background-color: rgba(94, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-  .chosen-number__back {
-    font-size: 2em;
-    left: -12.9%;
-    width: auto; }
-  .chosen-number__data {
-    width: 50%;
+    justify-content: center;
+    color: black; }
+  .chosen-data__input-image .input-image__input {
+    display: none; }
+  .chosen-data__input-image .input-image__label {
+    width: 100%;
     height: 100%;
-    color: white; }
-    .chosen-number__data .data__title {
-      font-size: 1.2em;
-      text-align: center;
-      padding: 2% 0; }
-    .chosen-number__data .data__section {
-      height: 85%;
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-      flex-direction: column;
-      font-size: 0.7em; }
-      .chosen-number__data .data__section .data__image {
-        width: 120px;
-        height: 170px;
-        object-fit: cover;
-        border-radius: 10px;
-        border: 1px solid white; }
-  @media (max-width: 754px) and (orientation: landscape) {
-    .chosen-number .data__image {
-      width: 40% !important;
-      height: 50% !important; } }
-  @media (max-width: 1024px) and (orientation: portrait) {
-    .chosen-number {
-      width: 80%; }
-      .chosen-number__back {
-        left: -10%; }
-      .chosen-number__data .data__title {
-        font-size: 2em; }
-      .chosen-number__data .data__section {
-        height: 90%;
-        font-size: 1.5em; }
-        .chosen-number__data .data__section .data__image {
-          width: 70%;
-          height: 30%; } }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; }
+
+@media (min-width: 768px) {
+  .chosen-data__inputs * {
+    margin: 15px 0;
+    font-size: 22px; }
+  .chosen-data__input-image {
+    width: 300px;
+    height: 400px; }
+    .chosen-data__input-image svg {
+      font-size: 70px; } }

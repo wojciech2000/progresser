@@ -29,6 +29,14 @@ body {
   border-radius: 7px;
 }
 
+*::-webkit-outer-spin-button,
+*::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
 h2 {
   margin: 0;
 }
@@ -108,11 +116,4 @@ a {
     width: 45%;
     padding: 5% 3%;
   }
-}
-
-.hide-arrows {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  margin: 0;
 }

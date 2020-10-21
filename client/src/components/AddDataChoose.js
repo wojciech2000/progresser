@@ -1,4 +1,4 @@
-import React, {Fragment, useContext, useState} from "react";
+import React, {useContext, useState} from "react";
 import {DataContext} from "./DataContext";
 import {useSelector} from "react-redux";
 import {FaArrowAltCircleRight} from "react-icons/fa";
@@ -49,32 +49,30 @@ function AddData(props) {
   };
 
   return (
-    <Fragment>
-      <motion.div
-        className="select-data"
-        initial="in"
-        animate="done"
-        exit="out"
-        variants={subPageVariants}
-        transition={subPageTransition}
-      >
-        {dataNames.map((name, id) => (
-          <motion.div
-            onClick={e => addDataName(e)}
-            className="select-data__data-name"
-            key={id}
-            whileTap={{scale: 0.85}}
-            transition={{type: "spring", stiffness: 400}}
-          >
-            {name === "image" ? "zdjęcie" : name}
-          </motion.div>
-        ))}
+    <motion.div
+      className="select-data"
+      initial="in"
+      animate="done"
+      exit="out"
+      variants={subPageVariants}
+      transition={subPageTransition}
+    >
+      {dataNames.map((name, id) => (
+        <motion.div
+          onClick={e => addDataName(e)}
+          className="select-data__data-name"
+          key={id}
+          whileTap={{scale: 0.85}}
+          transition={{type: "spring", stiffness: 400}}
+        >
+          {name === "image" ? "zdjęcie" : name}
+        </motion.div>
+      ))}
 
-        <button className="select-data__confirm" onClick={confirm}>
-          <FaArrowAltCircleRight />
-        </button>
-      </motion.div>
-    </Fragment>
+      <button className="select-data__confirm" onClick={confirm}>
+        <FaArrowAltCircleRight />
+      </button>
+    </motion.div>
   );
 }
 
