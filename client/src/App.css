@@ -37,6 +37,9 @@ a {
   text-decoration: none;
   color: white; }
 
+button {
+  font-family: "Francois One", sans-serif; }
+
 .input, .login__input, .register__input, .chosen-data__inputs .chosen-data__input-div {
   position: relative; }
   .input input, .login__input input, .register__input input, .chosen-data__inputs .chosen-data__input-div input {
@@ -339,7 +342,7 @@ a {
       border: 1px solid white; }
       .select-data__data-name--active:hover {
         background-color: black; }
-  .select-data__confirm, .chosen-data__back, .chosen-data__confirm {
+  .select-data__confirm, .chosen-data__back, .chosen-number__back, .chosen-data__confirm, .select-number__confirm {
     position: absolute;
     right: 0;
     transform: translateX(100%);
@@ -354,13 +357,13 @@ a {
     cursor: pointer;
     transition: all 0.2s ease-in;
     transition-property: background-color, color; }
-    .select-data__confirm:hover, .chosen-data__back:hover, .chosen-data__confirm:hover {
+    .select-data__confirm:hover, .chosen-data__back:hover, .chosen-number__back:hover, .chosen-data__confirm:hover, .select-number__confirm:hover {
       background-color: black;
       color: white; }
   @media (min-width: 500px) {
     .select-data, .chosen-data {
       width: 350px; }
-      .select-data__confirm, .chosen-data__back, .chosen-data__confirm {
+      .select-data__confirm, .chosen-data__back, .chosen-number__back, .chosen-data__confirm, .select-number__confirm {
         font-size: 50px; } }
   @media (min-width: 768px) {
     .select-data, .chosen-data {
@@ -375,10 +378,10 @@ a {
       width: 800px; }
       .select-data__data-name {
         font-size: 30px; }
-      .select-data__confirm, .chosen-data__back, .chosen-data__confirm {
+      .select-data__confirm, .chosen-data__back, .chosen-number__back, .chosen-data__confirm, .select-number__confirm {
         font-size: 60px; } }
 
-.chosen-data__back {
+.chosen-data__back, .chosen-number__back {
   left: 0;
   transform: translateX(-100%);
   border-radius: 10px 0 0 10px; }
@@ -425,6 +428,142 @@ a {
     height: 400px; }
     .chosen-data__input-image svg {
       font-size: 70px; } }
+
+.compare {
+  width: 100%;
+  height: calc(100% - 65px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute; }
+
+.select-number {
+  width: 300px;
+  height: 200px;
+  border-radius: 8px;
+  background-color: rgba(94, 0, 0, 0.7);
+  position: relative; }
+  .select-number__title {
+    font-size: 28px;
+    text-align: center;
+    margin: 15px 0; }
+  .select-number__section {
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; }
+  .select-number__num1, .select-number__num2 {
+    border: none;
+    outline: none;
+    width: 70px;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: "Black Ops One", cursive;
+    border: 1px solid black; }
+  .select-number__confirm {
+    top: 50%;
+    transform: translate(100%, -50%); }
+  @media (min-width: 768px) {
+    .select-number {
+      width: 400px;
+      height: 250px; }
+      .select-number__title {
+        font-size: 32px; }
+      .select-number__section {
+        height: 160px; }
+      .select-number__num1, .select-number__num2 {
+        width: 90px;
+        height: 60px;
+        font-size: 30px; } }
+
+.chosen-number {
+  width: 300px;
+  height: 530px;
+  border-radius: 10px;
+  background-color: rgba(94, 0, 0, 0.8);
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 0; }
+  .chosen-number__back {
+    top: 50%;
+    transform: translate(-100%, -50%); }
+  .chosen-number__data {
+    height: 100%;
+    transition: all 0.2s ease-in;
+    transition-property: opacity, color; }
+    .chosen-number__data--unactive {
+      opacity: 0.3;
+      color: black;
+      user-select: none; }
+  .chosen-number .data__title {
+    font-size: 15px;
+    margin: 15px 0;
+    text-align: center; }
+  .chosen-number .data__section {
+    min-height: 470px;
+    font-size: 13px;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column; }
+  .chosen-number .data__image {
+    width: 100px;
+    border-radius: 8px;
+    height: 140px;
+    object-fit: cover; }
+  .chosen-number__difference {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    font-size: 22px;
+    color: black;
+    z-index: 1;
+    font-family: "Black Ops One", cursive;
+    text-align: center;
+    z-index: -1;
+    opacity: 0.3;
+    user-select: none;
+    transition: all 0.2s ease-in;
+    transition-property: opacity, color; }
+    .chosen-number__difference--active {
+      z-index: 0;
+      opacity: 1;
+      color: white;
+      user-select: unset; }
+  .chosen-number__difference-toggle {
+    position: absolute;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    bottom: 0;
+    transform: translateY(100%);
+    width: 200px;
+    font-size: 20px;
+    padding: 10px 0;
+    border-radius: 0 0 10px 10px;
+    transition: all 0.2s ease-in;
+    transition-property: background-color, color; }
+    .chosen-number__difference-toggle:hover {
+      color: white;
+      background-color: black; }
+  @media (min-width: 768px) {
+    .chosen-number {
+      width: 600px; }
+      .chosen-number .data__title {
+        font-size: 28px; }
+      .chosen-number .data__section {
+        font-size: 22px;
+        min-height: 460px; } }
 
 .history {
   width: 100%;

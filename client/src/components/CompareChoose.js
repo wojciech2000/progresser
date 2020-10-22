@@ -24,6 +24,9 @@ function Comapre(props) {
       setLoggedMessage("Niepoprawna liczba");
     } else if (numOne === numTwo) {
       setLoggedMessage("Liczby nie mogą być takie same");
+    } else if (parseInt(numOne) > parseInt(numTwo)) {
+      console.log(numOne, numTwo);
+      setLoggedMessage("Pierwsza liczba musi być mniejsza od drugiej");
     } else {
       props.history.push({
         pathname: "/logged/compare/display",
@@ -57,14 +60,14 @@ function Comapre(props) {
           value={numTwo}
           onChange={e => setNumTwo(e.target.value)}
         />
-        <button
-          type="submit"
-          className="select-number__confirm"
-          onClick={confirm}
-        >
-          <FaArrowAltCircleRight />
-        </button>
       </div>
+      <button
+        type="submit"
+        className="select-number__confirm"
+        onClick={confirm}
+      >
+        <FaArrowAltCircleRight />
+      </button>
     </motion.div>
   );
 }

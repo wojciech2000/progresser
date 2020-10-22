@@ -11,7 +11,7 @@ function Compare() {
 
   return (
     <motion.div
-      className="add-data"
+      className="compare"
       initial="in"
       animate="done"
       exit="out"
