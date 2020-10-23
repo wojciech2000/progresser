@@ -40,8 +40,8 @@ function Comapre({history}) {
     return dataNames.map((dataName, id) => <span key={id}>{dataName}</span>);
   };
 
-  const display = dataArray => {
-    return dataArray.map((data, id) => {
+  const display = dataArray =>
+    dataArray.map((data, id) => {
       if (data[0] !== "Date" && data[0] !== "_id" && data[0] !== "image")
         return (
           <span key={id}>
@@ -53,7 +53,6 @@ function Comapre({history}) {
           <img key={id} className="data__image" alt="zdjęcie sylwetki" src={document.location.origin + "/" + data[1]} />
         );
     });
-  };
 
   return (
     <motion.div
@@ -64,7 +63,7 @@ function Comapre({history}) {
       variants={subPageVariants}
       transition={subPageTransition}
     >
-      {history.location.dataNumber && (
+      {history.location.dataNumber && store.length > 0 && (
         <Fragment>
           <button type="button" className="chosen-number__back" onClick={back}>
             <FaArrowAltCircleLeft />
