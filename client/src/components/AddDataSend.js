@@ -11,12 +11,7 @@ import axios from "axios";
 function AddData({history}) {
   const dispatch = useDispatch();
   const [image, setImage] = useState(null);
-  const {
-    inputActiveAnimation,
-    setLoggedMessage,
-    subPageVariants,
-    subPageTransition,
-  } = useContext(DataContext);
+  const {inputActiveAnimation, setLoggedMessage, subPageVariants, subPageTransition} = useContext(DataContext);
 
   const back = () => history.push("/logged/add-data/choose");
 
@@ -37,47 +32,32 @@ function AddData({history}) {
 
   const displayChosen = () => {
     if (history.location.state) {
-      //if there is image dispaly it last
-      const findImage = history.location.state.find(data => data === "zdjęcie");
-
-      const ImgOnLastPosition = history.location.state.filter(
-        data => data !== "zdjęcie",
-      );
-      ImgOnLastPosition.push("zdjęcie");
-
-      return (findImage ? ImgOnLastPosition : history.location.state).map(
-        (data, id) => {
-          if (data !== "zdjęcie") {
-            return (
-              <div className="chosen-data__input-div" key={id}>
-                <input
-                  onFocus={inputActiveAnimation}
-                  className="input-div__input"
-                  type="number"
-                  id={data}
-                  autoComplete="off"
-                />
-                <label htmlFor={data}>{data}(cm)</label>
-              </div>
-            );
-          }
-          if (data === "zdjęcie") {
-            return (
-              <div className="chosen-data__input-image" key={id}>
-                <input
-                  onChange={showImage}
-                  type="file"
-                  className="input-image__input"
-                  id={data}
-                />
-                <label htmlFor={data} className="input-image__label">
-                  <MdInsertPhoto />
-                </label>
-              </div>
-            );
-          }
-        },
-      );
+      return history.location.state.map((data, id) => {
+        if (data !== "zdjęcie") {
+          return (
+            <div className="chosen-data__input-div" key={id}>
+              <input
+                onFocus={inputActiveAnimation}
+                className="input-div__input"
+                type="number"
+                id={data}
+                autoComplete="off"
+              />
+              <label htmlFor={data}>{data}(cm)</label>
+            </div>
+          );
+        }
+        if (data === "zdjęcie") {
+          return (
+            <div className="chosen-data__input-image" key={id}>
+              <input onChange={showImage} type="file" className="input-image__input" id={data} />
+              <label htmlFor={data} className="input-image__label">
+                <MdInsertPhoto />
+              </label>
+            </div>
+          );
+        }
+      });
     }
   };
 

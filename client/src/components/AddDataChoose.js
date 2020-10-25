@@ -6,44 +6,31 @@ import {motion} from "framer-motion";
 
 function AddData(props) {
   const dataNames = useSelector(state => state.dataNames);
-  const {setLoggedMessage, subPageVariants, subPageTransition} = useContext(
-    DataContext,
-  );
+  const {setLoggedMessage, subPageVariants, subPageTransition} = useContext(DataContext);
 
-  const [choosenData, setChoosenData] = useState([]);
+  const [chosenData, setChoosenData] = useState([]);
 
   const addDataName = e => {
     const dataName = e.target;
     dataName.classList.toggle("select-data__data-name--active");
 
-    const isInArray = choosenData.find(
-      current => current === dataName.textContent,
-    );
+    const isInArray = chosenData.find(current => current === dataName.textContent);
 
     if (isInArray) {
       //remove from array
-      setChoosenData(
-        choosenData.filter(
-          current => current !== dataName.textContent && current,
-        ),
-      );
+      setChoosenData(chosenData.filter(current => current !== dataName.textContent && current));
     } else {
       //add to array
-      setChoosenData([...choosenData, dataName.textContent]);
+      setChoosenData([...chosenData, dataName.textContent]);
     }
   };
 
   const confirm = () => {
-    const chosenData = Array.from(
-      document.querySelectorAll(".select-data__data-name--active"),
-    );
-
-    if (chosenData.length === 0)
-      return setLoggedMessage("wybierz przynajmniej jedną opcje");
+    if (chosenData.length === 0) return setLoggedMessage("wybierz przynajmniej jedną opcje");
     else {
       props.history.push({
         pathname: "/logged/add-data/send",
-        state: choosenData,
+        state: chosenData.sort(),
       });
     }
   };
