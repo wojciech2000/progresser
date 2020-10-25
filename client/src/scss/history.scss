@@ -89,27 +89,41 @@
     }
   }
 
-  &__tabs::-webkit-scrollbar {
-    background-color: rgba($color: #000000, $alpha: 0.7);
-    border-radius: 8px;
-  }
-
   &__no-data {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+
     .no-data__span {
       padding: 2% 3%;
       background-color: rgba($color: #000000, $alpha: 0.8);
       border-radius: 10px;
       color: white;
+      font-size: 30px;
+    }
+
+    .no-data__image {
+      width: 100%;
+      height: 100%;
     }
   }
 
-  @media (max-width: 1024px) and (orientation: portrait) {
+  @media (min-width: 1024px) {
     &__tabs {
       width: 90%;
 
       .history__tab {
         margin: 8% 3%;
       }
+    }
+
+    .no-data__span {
+      font-size: 40px;
+    }
+
+    .no-data__image {
+      width: 800px;
     }
   }
 }

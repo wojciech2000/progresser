@@ -289,6 +289,19 @@ button {
     margin: 15px 0;
     object-fit: cover;
     border-radius: 6px; }
+  .current__no-data {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column; }
+    .current__no-data .no-data__span {
+      font-size: 30px; }
+    .current__no-data .no-data__image {
+      height: 100%;
+      width: 85%;
+      object-fit: cover; }
   @media (min-width: 768px) {
     .current {
       width: 700px;
@@ -301,7 +314,9 @@ button {
           font-size: 20px; }
         .current__section img {
           width: 300px;
-          height: 400px; } }
+          height: 400px; }
+      .current .no-data__span {
+        font-size: 40px; } }
 
 .add-data {
   width: 100%;
@@ -635,16 +650,26 @@ button {
         transition: background-color 0.2s ease-in-out; }
         .history__tabs .history__tab .tab__delete:hover {
           background-color: #5e0000; }
-  .history__tabs::-webkit-scrollbar {
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 8px; }
-  .history__no-data .no-data__span {
-    padding: 2% 3%;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    color: white; }
-  @media (max-width: 1024px) and (orientation: portrait) {
+  .history__no-data {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column; }
+    .history__no-data .no-data__span {
+      padding: 2% 3%;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      color: white;
+      font-size: 30px; }
+    .history__no-data .no-data__image {
+      width: 100%;
+      height: 100%; }
+  @media (min-width: 1024px) {
     .history__tabs {
       width: 90%; }
       .history__tabs .history__tab {
-        margin: 8% 3%; } }
+        margin: 8% 3%; }
+    .history .no-data__span {
+      font-size: 40px; }
+    .history .no-data__image {
+      width: 800px; } }

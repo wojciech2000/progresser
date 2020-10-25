@@ -8,23 +8,17 @@ function Current() {
   const currentData = useSelector(state => state.datas[state.datas.length - 1]);
   const {pageVariants, pageTransition} = useContext(DataContext);
 
-  const displayData = dataType => {
-    if (!currentData && dataType === "span") {
+  const displayData = () => {
+    if (!currentData) {
       return (
         <div className="current__no-data">
           <span className="no-data__span">dodaj dane, dziku</span>
-          <img
-            className="no-data__image"
-            src={boarIllustration}
-            alt="boar-illustration"
-          />
+          <img className="no-data__image" src={boarIllustration} alt="boar-illustration" />
         </div>
       );
     } else if (currentData) {
       // change object of data(except id and date) into arry so it be possible to use array methods
-      const arrayDatas = Object.entries(currentData).filter(
-        value => value[0] !== "Date" && value[0] !== "_id",
-      );
+      const arrayDatas = Object.entries(currentData).filter(value => value[0] !== "Date" && value[0] !== "_id");
 
       const image = arrayDatas.find(data => data[0] === "image");
 
