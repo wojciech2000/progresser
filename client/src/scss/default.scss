@@ -3,21 +3,19 @@ $header-font: "Black Ops One", cursive;
 $quote-font: "Merienda One", cursive;
 $main-contrastColor: #5e0000;
 
-html {
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-}
-
 body {
-  width: 100vw;
-  height: 100vh;
   box-sizing: border-box;
   font-family: $main-font;
-  overflow: hidden;
   margin: 0;
   padding: 0;
   color: white;
+}
+
+.wrapper {
+  position: relative;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
 }
 
 *::-webkit-scrollbar {

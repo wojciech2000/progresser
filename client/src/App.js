@@ -1,14 +1,16 @@
-import React, { Fragment } from "react";
+import React, {Fragment} from "react";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import { DataProvider } from "./components/DataContext";
+import {DataProvider} from "./components/DataContext";
 
 function App() {
   return (
     <Fragment>
       <DataProvider>
-        <Header />
-        <Body />
+        <div className="wrapper">
+          <Header />
+          <Body />
+        </div>
       </DataProvider>
     </Fragment>
   );
