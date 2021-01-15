@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import React, {useContext} from "react";
 import {DataContext} from "./DataContext";
 import {getAllData} from "../redux/data/fetchData";
 import {getAllDataNames} from "../redux/dataNames/fetchDataNames";

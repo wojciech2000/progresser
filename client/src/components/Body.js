@@ -1,7 +1,6 @@
-import React, {useEffect, useContext} from "react";
+import React, {useEffect} from "react";
 import Form from "./Form";
 import Nav from "./Nav";
-import {DataContext} from "./DataContext";
 import {getAllData} from "../redux/data/fetchData";
 import {getAllDataNames} from "../redux/dataNames/fetchDataNames";
 import {useDispatch, useSelector} from "react-redux";
@@ -16,8 +15,6 @@ import LoginLogoutModal from "./LoginLogoutModal";
 import LoggedMessageModal from "./LoggedMessageModal";
 
 function Body() {
-  const {loginLogoutContent} = useContext(DataContext);
-
   //this datas are download by logging in and remove by logging out
   const checkIfUserIsLogged = useSelector(state => state.dataNames);
   const dispatch = useDispatch();

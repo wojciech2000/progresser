@@ -13,11 +13,15 @@ function Comapre({history}) {
   const back = () => history.push("/logged/compare/choose");
 
   const toggleDisplay = () => {
-    const displayDifference = document.querySelector(".chosen-number__difference");
+    const displayDifference = document.querySelector(
+      ".chosen-number__difference",
+    );
     const displayDivs = document.querySelectorAll(".chosen-number__data");
 
     displayDifference.classList.toggle("chosen-number__difference--active");
-    displayDivs.forEach(div => div.classList.toggle("chosen-number__data--unactive"));
+    displayDivs.forEach(div =>
+      div.classList.toggle("chosen-number__data--unactive"),
+    );
 
     setToggleButton(prevValue => !prevValue);
   };
@@ -28,9 +32,13 @@ function Comapre({history}) {
       for (let j of Object.entries(store[history.location.dataNumber[1]])) {
         if (i[0] === j[0]) {
           if (i[1] - j[1] < 0) {
-            dataNames.push(`${i[0]}: wzrost ${Math.abs(i[1] - j[1])}cm`);
+            dataNames.push(
+              `${i[0]}: wzrost ${Math.abs(i[1] - j[1]).toFixed(1)}cm`,
+            );
           } else if (i[1] - j[1] > 0) {
-            dataNames.push(`${i[0]}: spadek ${Math.abs(j[1] - i[1])}cm`);
+            dataNames.push(
+              `${i[0]}: spadek ${Math.abs(j[1] - i[1]).toFixed(1)}cm`,
+            );
           } else if (i[1] - j[1] === 0) {
             dataNames.push(`${i[0]}: brak zmian`);
           }
@@ -50,7 +58,12 @@ function Comapre({history}) {
         );
       else if (data[0] === "image")
         return (
-          <img key={id} className="data__image" alt="zdjęcie sylwetki" src={document.location.origin + "/" + data[1]} />
+          <img
+            key={id}
+            className="data__image"
+            alt="zdjęcie sylwetki"
+            src={document.location.origin + "/" + data[1]}
+          />
         );
     });
 
@@ -69,19 +82,33 @@ function Comapre({history}) {
             <FaArrowAltCircleLeft />
           </button>
           <div className="chosen-number__data">
-            <h2 className="data__title">{store[history.location.dataNumber[0]].Date}</h2>
+            <h2 className="data__title">
+              {store[history.location.dataNumber[0]].Date}
+            </h2>
 
-            <div className="data__section">{display(Object.entries(store[history.location.dataNumber[0]]))}</div>
+            <div className="data__section">
+              {display(Object.entries(store[history.location.dataNumber[0]]))}
+            </div>
           </div>
           <div className="chosen-number__data">
-            <h2 className="data__title">{store[history.location.dataNumber[1]].Date}</h2>
+            <h2 className="data__title">
+              {store[history.location.dataNumber[1]].Date}
+            </h2>
 
-            <div className="data__section">{display(Object.entries(store[history.location.dataNumber[1]]))}</div>
+            <div className="data__section">
+              {display(Object.entries(store[history.location.dataNumber[1]]))}
+            </div>
           </div>
           {displayDifference().length > 0 && (
             <Fragment>
-              <div className="chosen-number__difference">{displayDifference()}</div>
-              <button type="button" className="chosen-number__difference-toggle" onClick={toggleDisplay}>
+              <div className="chosen-number__difference">
+                {displayDifference()}
+              </div>
+              <button
+                type="button"
+                className="chosen-number__difference-toggle"
+                onClick={toggleDisplay}
+              >
                 {toggleButton ? "Pokaż" : "Ukryj"} porównanie
               </button>
             </Fragment>

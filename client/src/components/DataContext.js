@@ -1,5 +1,4 @@
 import React, {createContext, useState} from "react";
-import gsap from "gsap";
 
 export const DataContext = createContext();
 
